@@ -1,0 +1,7 @@
+P001-preview/
+├── index.html
+└── assets/
+    ├── .gitkeep
+    ├── portrait-introduction.jpg
+    ├── portrait-experience.jpg
+    └── portrait-leadership.jpg
