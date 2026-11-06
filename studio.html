@@ -36,7 +36,7 @@ el('notes').value.trim()||'No additional notes.',
 'Prepared by: '+(el('agent-name').value.trim()||'Independent Agent'),
 '',
 'Planning assumptions: 70% illustrative contribution factor. Estimates only; not an approved casino offer. All costs, eligibility, and terms require property review.'
-].join('\\n'):'';
+].join('\n'):'';
 el('email').disabled=!ok;el('print').disabled=!ok;updateReadiness();el('feedback').textContent=ok?'':'Enter at least one participant, one play day, and valid nonnegative expenses.';el('feedback').className=ok?'':'error';
 }
 function readiness(){const missing=[];if(!el('agent-name').value.trim())missing.push('agent name');if(!el('event').value.trim())missing.push('event name');if(!el('date').value)missing.push('start date');if(!el('venue').value.trim())missing.push('venue');return missing}
@@ -93,7 +93,7 @@ el('email').addEventListener('click',()=>{if(!valid())return;
  'Illustrative group Theo target: '+money((num('prize')+num('participants')*(num('perperson')+num('airfare')+num('transport'))+num('other'))/assumedFactor),'',
  'Please review the attached PDF for the itemized budget, play targets, and planning assumptions. No event terms or benefits are approved at this stage.','',
  'Thank you,',el('agent-name').value.trim()||'Independent Agent'
- ].join('\\n');
+ ].join('\n');
  const url='mailto:?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
  if(url.length>2000){el('feedback').textContent='Email draft is too long for this device. Shorten the event name and try again.';el('feedback').className='error';return}
  window.location.href=url;
