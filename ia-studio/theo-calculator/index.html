@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5f7"><title>Theo Calculator | iA Studio | Paul Andrew Esplana</title><meta name="description" content="Theo Calculator for independent agent gaming value estimation."><style>
+:root{--bg:#f5f5f7;--ink:#1d1d1f;--muted:#6e6e73;--gold:#94734d;--blue:#06c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit}header{background:#fffffff0;backdrop-filter:blur(18px);border-bottom:1px solid #dedee3;position:sticky;top:0;z-index:2}.wrap{max-width:1180px;margin:auto;padding:0 24px}nav{min-height:65px;display:flex;gap:20px;align-items:center;justify-content:space-between}.brand{font-weight:700;letter-spacing:-.035em}.back{font-size:13px;color:#555}.back:hover{color:var(--blue)}.eyebrow{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:var(--gold);font-weight:700}.hero{padding:65px 0 32px}.hero h1{font-size:clamp(44px,8vw,86px);letter-spacing:-.075em;line-height:1;margin:14px 0}.hero p{color:var(--muted);font-size:clamp(17px,2vw,23px);line-height:1.5;max-width:820px}.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:26px 0 0}.button{border-radius:100px;padding:14px 22px;background:#06c;color:#fff;font-weight:650;font-size:14px}.button.outline{background:#fff;color:#1d1d1f;border:1px solid #d9d9df}.shell{border-radius:22px;overflow:hidden;border:1px solid #dddde3;background:white;box-shadow:0 6px 30px #17171c08}.shelltop{padding:14px 22px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.shelltop b{font-size:14px}.shelltop small{color:#81818a}iframe{width:100%;height:560px;border:0;display:block;background:#fff;overflow:hidden}.footnote{padding:12px 0 22px;color:#777;font-size:12px;line-height:1.6}.meta{padding-top:15px;border-top:1px solid #dedee3;color:#86868b;font-size:12px;margin-bottom:25px}
+@media(max-width:700px){.wrap{padding:0 17px}.hero{padding:36px 0 24px}.hero h1{font-size:49px}.shell{border-radius:17px}iframe{height:720px}.shelltop{padding:12px 16px}}
+</style></head><body><header><nav class="wrap"><a class="brand" href="https://www.paulandrewesplana.com">Paul Andrew Esplana</a><a class="back" href="../../studio.html">← Back to iA Studio</a></nav></header><main class="wrap"><section class="hero"><div class="eyebrow">iA Studio · Player Value Intelligence</div><h1>Theo Calculator.</h1><p>Estimate theoretical gaming value across table games and multi-day visits, with transparent assumptions and a shareable calculation report.</p><div class="actions"><a class="button" href="https://theo-calculator.vercel.app" target="_blank" rel="noopener">Open full calculator ↗</a><a class="button outline" href="../../studio.html">iA Studio workspace ↗</a></div></section><section class="shell" aria-label="Theo Calculator"><div class="shelltop"><b>Interactive calculator</b><small>Live tool · Independently hosted</small></div><iframe id="theo-frame" title="Theo Calculator" loading="eager" scrolling="no" src="/embedded-theo" referrerpolicy="strict-origin-when-cross-origin" allow="clipboard-write"></iframe></section><p class="footnote">Estimates only. Confirm game assumptions and actual ratings with your on-property casino contact. For a full-screen view, select “Open full calculator.”</p><div class="meta">© 2026 Paul Andrew Esplana · iA Studio</div></main><script>
+(()=>{
+  const frame=document.getElementById("theo-frame");
+  let ro,mo;
+  let raf=0;
+  function fit(){
+    try{
+      const doc=frame.contentDocument;
+      if(!doc||!doc.body)return;
+      const b=doc.body, root=doc.documentElement;
+      const r=b.getBoundingClientRect();
+      const children=Array.from(b.children);
+      const childBottom=children.length?Math.max(...children.map(el=>el.getBoundingClientRect().bottom-r.top)):0;
+      const height=Math.ceil(Math.max(b.scrollHeight,b.offsetHeight,childBottom)+3);
+      if(Number.isFinite(height)&&height>100&&height<20000){
+        if(Math.abs(frame.getBoundingClientRect().height-height)>3)frame.style.height=height+"px";
+      }
+    }catch(error){frame.removeAttribute("scrolling");frame.style.height="1200px";}
+  }
+  function requestFit(){if(!raf)raf=requestAnimationFrame(()=>{raf=0;fit()});}
+  frame.addEventListener("load",()=>{
+    try{
+      const doc=frame.contentDocument;
+      if(!doc||!doc.body)throw Error("Embedded content inaccessible");
+      doc.documentElement.style.overflow="hidden";
+      doc.body.style.overflow="hidden";
+      if(ro)ro.disconnect();
+      if(mo)mo.disconnect();
+      ro=new ResizeObserver(requestFit);
+      ro.observe(doc.body);
+      if(doc.querySelector("main"))ro.observe(doc.querySelector("main"));
+      mo=new MutationObserver(requestFit);
+      mo.observe(doc.body,{childList:true,subtree:true,attributes:true,characterData:true});
+      frame.contentWindow.addEventListener("resize",requestFit);
+      doc.addEventListener("input",requestFit);
+      doc.addEventListener("click",requestFit);
+      requestFit();
+    }catch(error){frame.removeAttribute("scrolling");frame.style.height="1200px";}
+  });
+  window.addEventListener("resize",requestFit);
+})();
+</script></body></html>
