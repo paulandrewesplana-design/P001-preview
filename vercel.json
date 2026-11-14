@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/embedded-theo",
+      "destination": "https://theo-calculator.vercel.app"
+    },
+    {
+      "source": "/embedded-adt",
+      "destination": "https://adt-calculator-preview.vercel.app"
+    }
+  ]
+}
