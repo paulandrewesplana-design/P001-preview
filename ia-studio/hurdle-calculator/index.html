@@ -21,7 +21,7 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 @media(min-width:680px){.target-card .target-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .benchmark-value{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;background:#f0f6ff;border:1px solid #b9d8f6;border-radius:11px;color:#23466a;line-height:1.5}.benchmark-value strong{font-size:23px;color:#0066cc}.benchmark-value a{font-size:12px;font-weight:700;text-align:right}.benchmark-value small{font-size:11px;color:#586e83}.focused-layout [hidden]{display:none!important}@media(max-width:550px){.benchmark-value{align-items:flex-start;flex-direction:column}.benchmark-value a{text-align:left}}</style></head><body>
 <header><nav><a class="brand" href="https://www.paulandrewesplana.com/">Paul Andrew Esplana</a><a class="back" href="../../studio.html">← Back to iA Studio</a></nav></header>
-<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Enter an established casino player’s historical average wager, select the game and playing time, and model a first-visit promotional proposal without discounting the agent’s reported rating.</p><div class="release">v1.7 Agent Historical Rating · Illustrative offers only</div></section>
+<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Enter an established casino player’s historical average wager, select the game and playing time, and model a first-visit promotional proposal without discounting the agent’s reported rating.</p><div class="release">v1.8 Agent Offer Model · Illustrative offers only</div></section>
 <div class="focused-layout">
 <section class="card target-card">
 <div class="step">01 / HISTORICAL AVERAGE BET</div><h2>Historical Bet → Suggested Promo</h2>
@@ -53,18 +53,6 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 <div class="line"><span>Proposed playing hurdle</span><strong id="targetCondition">—</strong></div>
 <div class="line"><span>Modeled promotional cost plus other expenses</span><strong id="targetInvestment">—</strong></div>
 <div class="line"><span>Modeled investment / Theo</span><strong id="targetRatio">—</strong></div>
-<div class="profit-panel">
-<div class="step">02 / PROFITABILITY CHECK</div>
-<div class="metric primary"><small>Projected contribution (Theo less modeled costs)</small><strong id="projectedNet">—</strong></div>
-<p class="status" id="projectedStatus" role="status"></p>
-<p class="muted">Projected contribution is <strong>not actual casino profit</strong>. It compares theoretical value with the modeled promotional cost (100% of face value); other trip costs and commissions are not included.</p>
-<div class="field" style="margin-top:16px"><label for="actualWin">Optional actual casino gaming win / loss ($)</label><input id="actualWin" type="number" step="any" placeholder="Enter actual result when known"></div>
-<div id="actualProfitability" hidden>
-<div class="line"><span>Actual casino gaming win / loss</span><strong id="actualWinDisplay">—</strong></div>
-<div class="line"><span>Actual contribution after modeled trip costs</span><strong id="actualNet">—</strong></div>
-<p class="status" id="actualStatus" role="status"></p>
-</div>
-</div>
 <div class="note" id="targetNote">Values are estimated, not a guaranteed outcome or authorized casino offer. Actual rating parameters and costs must be confirmed with the casino.</div>
 <div class="btnbar"><button id="copy" class="btn" type="button">Copy Proposal</button><button id="print" class="btn alt" type="button">Print Proposal</button></div>
 <div class="muted" id="exportstatus" role="status" style="margin-top:8px"></div>
@@ -117,8 +105,6 @@ function calculate(){
   if(!game)throw Error("Select a supported game.");
   const speed=category==="tables"?game[1]:get("speed",.0000001,null);
   const edge=category==="tables"?game[2]:($("slotRateSource").value==="ngcb"?NGCB_SLOT_WIN_PCT:get("edge",.0000001,100));
-  const rawActual=$("actualWin").value.trim(),actualWin=rawActual===""?null:Number(rawActual);
-  if(actualWin!==null&&!Number.isFinite(actualWin))throw Error("Enter a valid actual casino gaming win/loss.");
   const theo=bet*hours*days*speed*edge/100;
   if(!Number.isFinite(theo)||theo<=0)throw Error("The assumptions do not produce a positive theoretical value.");
   const allowance=theo*REINVEST/100;
@@ -126,24 +112,13 @@ function calculate(){
   if(!Number.isFinite(total)||!Number.isSafeInteger(total))throw Error("Result too large to calculate reliably.");
   const upfront=Math.floor(total*.625/50)*50,earned=total-upfront;
   const investment=total*PROMO_COST/100+OTHER_COST+AGENT_FEES;
-  const projected=theo-investment;
-  const actual=actualWin===null?null:actualWin-investment;
   const ratio=investment/theo*100;
-  if(![allowance,investment,projected,ratio].every(Number.isFinite)||(actual!==null&&!Number.isFinite(actual)))throw Error("Result too large.");
-  result={category,game:game[0],bet,hours,days,speed,edge,theo,total,upfront,earned,investment,projected,actual,actualWin,ratio,slotRateSource:category==="slots"?$("slotRateSource").value:null};
+  if(![allowance,investment,ratio].every(Number.isFinite))throw Error("Result too large.");
+  result={category,game:game[0],bet,hours,days,speed,edge,theo,total,upfront,earned,investment,ratio,slotRateSource:category==="slots"?$("slotRateSource").value:null};
   $("targetTheo").textContent=money(theo);$("targetTotal").textContent=money(total);
   $("targetUpfront").textContent=money(upfront);$("targetEarned").textContent=money(earned);
   $("targetCondition").textContent=dec(hours)+" hours/day for "+days+" day(s) at "+money(bet)+" average wager";
   $("targetInvestment").textContent=money(investment);$("targetRatio").textContent=pct(ratio);
-  $("projectedNet").textContent=money(projected);
-  $("projectedStatus").className="status "+(projected>0?"ok":"warn");
-  $("projectedStatus").textContent=projected>0?"Positive projected contribution under illustrative assumptions. Actual profitability is not established.":projected===0?"Modeled break-even projected contribution. Actual profitability is not established.":"Negative projected contribution under the model.";
-  $("actualProfitability").hidden=actual===null;
-  if(actual!==null){
-   $("actualWinDisplay").textContent=money(actualWin);$("actualNet").textContent=money(actual);
-   $("actualStatus").className="status "+(actual>0?"ok":"warn");
-   $("actualStatus").textContent=actual>0?"Positive actual gaming contribution after modeled promotional cost; not full-property profit.":actual===0?"Break-even actual gaming contribution after modeled promotional cost.":"Negative actual gaming contribution after modeled promotional cost.";
-  }
   $("theoLabel").textContent=category==="slots"&&$("slotRateSource").value==="ngcb"?"Modeled value (historical market proxy)":"Estimated trip Theo";
  $("assumptionsNote").textContent=category==="tables"?"Historical industry rating estimate: "+game[0]+", "+dec(speed)+" decisions/hour, "+pct(edge)+" rating advantage. Hypothetical "+REINVEST+"% reinvestment, 100% promo cost, no additional costs. Not casino policy.":$("slotRateSource").value==="ngcb"?"NGCB Las Vegas Strip 12-month observed slot win: 7.76% (Oct 2025–Sep 2026). Historical market proxy only, not the machine's theoretical hold. User-entered play speed. Hypothetical 30% reinvestment and 100% promo cost; not casino policy.":"Using user-entered verified machine hold and play speed. Hypothetical 30% reinvestment and 100% promo cost; not casino policy.";
   $("targetNote").textContent=total>0?"Suggestions are rounded down to $50 increments with an approximate 62.5% upfront / 37.5% conditional split. Subject to verified play and casino approval.":"No positive promotional face value is supported under the modeling assumptions.";
@@ -152,17 +127,16 @@ function calculate(){
 }
 function summary(){
  if(!result)return null;const r=result;
- return "HURDLE CALCULATOR v1.7 — ILLUSTRATIVE, NOT APPROVED\n"+
+ return "HURDLE CALCULATOR v1.8 — ILLUSTRATIVE OFFER, NOT APPROVED\n"+
  "Game: "+r.game+" ("+(r.category==="tables"?"Table Games":"Slots")+")\n"+
  "Historical average bet supplied by agent: "+money(r.bet)+"\n"+
  "Qualifying play: "+dec(r.hours)+" hours/day for "+r.days+" day(s)\n"+
  "Rating assumptions: "+dec(r.speed)+" decisions/spins per hour, "+pct(r.edge)+(r.category==="slots"&&r.slotRateSource==="ngcb"?" NGCB historical Strip market win percent (not theoretical machine hold)":" estimated advantage/hold")+"\n"+
- "Estimated Theo: "+money(r.theo)+"\nSuggested upfront: "+money(r.upfront)+"\nAfter hurdle: "+money(r.earned)+"\n"+
- "Total suggested promo: "+money(r.total)+"\nModeled promo economic cost: "+money(r.investment)+
- "\nModel: "+REINVEST+"% hypothetical Theo reinvestment, "+PROMO_COST+"% promo economic cost, no other costs or agent fees."+
- "\nProjected contribution (NOT actual profit): "+money(r.projected)+
- (r.actual===null?"\nActual casino gaming contribution: Unknown (actual win/loss not entered).":"\nActual casino win/loss: "+money(r.actualWin)+"\nActual contribution after modeled promotional cost: "+money(r.actual))+
- "\nAdditional trip/operating costs and commissions are excluded. Offers require casino approval.";
+ "Estimated Theo / modeled value: "+money(r.theo)+"\n"+
+ "Suggested upfront: "+money(r.upfront)+"\nAfter hurdle: "+money(r.earned)+"\n"+
+ "Total suggested promo: "+money(r.total)+"\nModeled promotional cost: "+money(r.investment)+"\n"+
+ "Model assumptions: "+REINVEST+"% hypothetical Theo reinvestment, "+PROMO_COST+"% promotional economic cost, no additional trip costs or commissions.\n"+
+ "This is a nonbinding promotional illustration, not casino policy. Offer subject to casino approval.";
 }
 $("category").addEventListener("change",setGameList);
 $("slotRateSource").addEventListener("change",syncSlotRate);
