@@ -19,9 +19,9 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 .advanced summary::-webkit-details-marker{display:none}.advanced[open] summary{margin-bottom:19px;padding-bottom:12px;border-bottom:1px solid var(--line)}
 .target-card .target-metrics{margin:15px 0}
 @media(min-width:680px){.target-card .target-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
-</style></head><body>
+.benchmark-value{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;background:#f0f6ff;border:1px solid #b9d8f6;border-radius:11px;color:#23466a;line-height:1.5}.benchmark-value strong{font-size:23px;color:#0066cc}.benchmark-value a{font-size:12px;font-weight:700;text-align:right}.benchmark-value small{font-size:11px;color:#586e83}.focused-layout [hidden]{display:none!important}@media(max-width:550px){.benchmark-value{align-items:flex-start;flex-direction:column}.benchmark-value a{text-align:left}}</style></head><body>
 <header><nav><a class="brand" href="https://www.paulandrewesplana.com/">Paul Andrew Esplana</a><a class="back" href="../../studio.html">← Back to iA Studio</a></nav></header>
-<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Enter a target wager, select the game and playing time, and review the suggested promotion and projected contribution in one place.</p><div class="release">v1.5 Single-Tile Proposal · Planning estimates only</div></section>
+<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Enter a target wager, select the game and playing time, and review the suggested promotion and projected contribution in one place.</p><div class="release">v1.6 NGCB Slot Benchmark · Modeling estimates only</div></section>
 <div class="focused-layout">
 <section class="card target-card">
 <div class="step">01 / TARGET AVERAGE BET</div><h2>Target Bet → Suggested Promo</h2>
@@ -35,14 +35,17 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 </div>
 <div id="slotFields" class="fields" style="margin-top:14px" hidden>
 <div class="field"><label for="speed">Estimated spins / hands per hour</label><input id="speed" type="number" min="0" step="any" placeholder="Enter verified play speed"></div>
-<div class="field"><label for="edge">Estimated theoretical hold (%)</label><input id="edge" type="number" min="0" max="100" step="any" placeholder="Enter verified hold"></div>
+<div class="field"><label for="slotRateSource">Slot percentage source</label><select id="slotRateSource"><option value="ngcb">NGCB historical market benchmark</option><option value="verified">Verified machine theoretical hold</option></select></div>
+<div class="field wide" id="ngcbBenchmark"><div class="benchmark-value"><span><strong>7.76%</strong> · Las Vegas Strip · All Slot Machines<br><small>12 months: Oct 2025–Sep 2026 · Actual market win percentage</small></span><a href="https://www.gaming.nv.gov/siteassets/content/about/gaming-revenue/monthly-revenue-report----september-2026.pdf" target="_blank" rel="noopener noreferrer">Official NGCB report ↗</a></div>
+<p class="muted">Used only as an <strong>illustrative modeling proxy</strong>. This is a historical market aggregate, <strong>not</strong> a verified theoretical hold for any Reel, Video, Progressive, or Video Poker machine. <a href="https://www.gaming.nv.gov/about-us/gaming-revenue-information-gri/" target="_blank" rel="noopener noreferrer">NGCB report archive</a>.</p></div>
+<div class="field wide" id="verifiedRateField" hidden><label for="edge">Verified machine theoretical hold (%)</label><input id="edge" type="number" min="0" max="100" step="any" placeholder="Enter documented machine theoretical hold"></div>
 </div>
 <div class="note" id="assumptionsNote">Model: historical table-game rating assumptions, 30% illustrative Theo reinvestment ceiling, 100% promotional cost, no other trip costs or commissions. <strong>Not casino policy.</strong></div>
 <div id="targetEmpty" class="note">Enter a wager to calculate an illustrative promotional recommendation. No offers are approved by this calculator.</div>
 <div id="targetError" class="status error" role="alert" hidden></div>
 <div id="targetResults" hidden>
 <div class="metrics target-metrics">
-<div class="metric primary"><small>Estimated trip Theo</small><strong id="targetTheo">—</strong></div>
+<div class="metric primary"><small id="theoLabel">Estimated trip Theo</small><strong id="targetTheo">—</strong></div>
 <div class="metric"><small>Suggested promotional value</small><strong id="targetTotal">—</strong></div>
 <div class="metric"><small>Suggested upfront promotion</small><strong id="targetUpfront">—</strong></div>
 <div class="metric"><small>Additional after qualifying play</small><strong id="targetEarned">—</strong></div>
@@ -69,7 +72,7 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 </section>
 
 </div>
-<div class="footer muted">Formula for table games: estimated trip Theo = average rated bet × estimated decisions/hour × hours/day × playing days × estimated rating advantage. For slots: wager/spin × spins/hour × hours/day × playing days × theoretical hold. The slot assumptions are not prefilled because game-specific values must be provided. Promotional valuation, casino ratings, reinvestment policy and release milestones require casino approval. <a href="https://www.gaming.nv.gov/siteassets/content/regs/gaming-statutes--regulations/regulation-25-as-of-04-26.pdf" target="_blank" rel="noopener noreferrer">Nevada Regulation 25 (Theo definition)</a>. Historical table-game defaults: <a href="https://wizardofodds.com/ask-the-wizard/184/" target="_blank" rel="noopener noreferrer">Wizard of Odds player-rating example</a>. This calculator does not predict actual results or authorize offers.</div>
+<div class="footer muted">Formula for table games: estimated trip Theo = average rated bet × estimated decisions/hour × hours/day × playing days × estimated rating advantage. For slots: wager/spin × spins/hour × hours/day × playing days × theoretical hold. Slot benchmark option: Nevada Gaming Control Board, September 2026 report, Las Vegas Strip area, all slot machines, 12-month actual win percent 7.76% (https://www.gaming.nv.gov/about-us/gaming-revenue-information-gri/). Market win percent is an empirical proxy only—not a machine theoretical hold or regulator-approved casino rating. Slot speed remains a user-supplied estimate. Promotional valuation, casino ratings, reinvestment policy and release milestones require casino approval. <a href="https://www.gaming.nv.gov/siteassets/content/regs/gaming-statutes--regulations/regulation-25-as-of-04-26.pdf" target="_blank" rel="noopener noreferrer">Nevada Regulation 25 (Theo definition)</a>. Historical table-game defaults: <a href="https://wizardofodds.com/ask-the-wizard/184/" target="_blank" rel="noopener noreferrer">Wizard of Odds player-rating example</a>. This calculator does not predict actual results or authorize offers.</div>
 </main>
 <script>
 (()=>{
@@ -79,6 +82,7 @@ const games={
  slots:[["Reel Slots",null,null],["Video Slots",null,null],["Progressive Slots",null,null],["Video Poker",null,null]]
 };
 const REINVEST=30, PROMO_COST=100, OTHER_COST=0, AGENT_FEES=0;
+const NGCB_SLOT_WIN_PCT=7.76; // Las Vegas Strip, all slots, 12 months ending Sep 2026, observed market win (NOT theoretical hold).
 const $=id=>document.getElementById(id);
 const money=n=>Number(n).toLocaleString("en-US",{style:"currency",currency:"USD"});
 const pct=n=>Number(n).toLocaleString("en-US",{minimumFractionDigits:1,maximumFractionDigits:1})+"%";
@@ -98,6 +102,11 @@ function setGameList(){
  $("slotFields").hidden=category!=="slots";
  calculate();
 }
+function syncSlotRate(){
+ const isBenchmark=$("slotRateSource").value==="ngcb";
+ $("ngcbBenchmark").hidden=!isBenchmark;$("verifiedRateField").hidden=isBenchmark;
+ calculate();
+}
 function calculate(){
  result=null;
  const err=$("targetError");err.hidden=true;$("targetResults").hidden=true;$("targetEmpty").hidden=false;
@@ -107,7 +116,7 @@ function calculate(){
   const game=games[category][Number($("game").value)];
   if(!game)throw Error("Select a supported game.");
   const speed=category==="tables"?game[1]:get("speed",.0000001,null);
-  const edge=category==="tables"?game[2]:get("edge",.0000001,100);
+  const edge=category==="tables"?game[2]:($("slotRateSource").value==="ngcb"?NGCB_SLOT_WIN_PCT:get("edge",.0000001,100));
   const rawActual=$("actualWin").value.trim(),actualWin=rawActual===""?null:Number(rawActual);
   if(actualWin!==null&&!Number.isFinite(actualWin))throw Error("Enter a valid actual casino gaming win/loss.");
   const theo=bet*hours*days*speed*edge/100;
@@ -121,7 +130,7 @@ function calculate(){
   const actual=actualWin===null?null:actualWin-investment;
   const ratio=investment/theo*100;
   if(![allowance,investment,projected,ratio].every(Number.isFinite)||(actual!==null&&!Number.isFinite(actual)))throw Error("Result too large.");
-  result={category,game:game[0],bet,hours,days,speed,edge,theo,total,upfront,earned,investment,projected,actual,actualWin,ratio};
+  result={category,game:game[0],bet,hours,days,speed,edge,theo,total,upfront,earned,investment,projected,actual,actualWin,ratio,slotRateSource:category==="slots"?$("slotRateSource").value:null};
   $("targetTheo").textContent=money(theo);$("targetTotal").textContent=money(total);
   $("targetUpfront").textContent=money(upfront);$("targetEarned").textContent=money(earned);
   $("targetCondition").textContent=dec(hours)+" hours/day for "+days+" day(s) at "+money(bet)+" average wager";
@@ -135,7 +144,8 @@ function calculate(){
    $("actualStatus").className="status "+(actual>0?"ok":"warn");
    $("actualStatus").textContent=actual>0?"Positive actual gaming contribution after modeled promotional cost; not full-property profit.":actual===0?"Break-even actual gaming contribution after modeled promotional cost.":"Negative actual gaming contribution after modeled promotional cost.";
   }
-  $("assumptionsNote").innerHTML=category==="tables"?"<strong>Historical player-rating estimates.</strong> "+game[0]+": "+dec(speed)+" decisions/hour and "+pct(edge)+" advantage. Illustrative "+REINVEST+"% reinvestment, 100% promo cost, no additional costs. Not casino policy.":"<strong>Slot estimates:</strong> based on your entered speed and hold. Illustrative "+REINVEST+"% reinvestment, 100% promo cost, no additional costs. Not casino policy.";
+  $("theoLabel").textContent=category==="slots"&&$("slotRateSource").value==="ngcb"?"Modeled value (historical market proxy)":"Estimated trip Theo";
+ $("assumptionsNote").textContent=category==="tables"?"Historical industry rating estimate: "+game[0]+", "+dec(speed)+" decisions/hour, "+pct(edge)+" rating advantage. Hypothetical "+REINVEST+"% reinvestment, 100% promo cost, no additional costs. Not casino policy.":$("slotRateSource").value==="ngcb"?"NGCB Las Vegas Strip 12-month observed slot win: 7.76% (Oct 2025–Sep 2026). Historical market proxy only, not the machine's theoretical hold. User-entered play speed. Hypothetical 30% reinvestment and 100% promo cost; not casino policy.":"Using user-entered verified machine hold and play speed. Hypothetical 30% reinvestment and 100% promo cost; not casino policy.";
   $("targetNote").textContent=total>0?"Suggestions are rounded down to $50 increments with an approximate 62.5% upfront / 37.5% conditional split. Subject to verified play and casino approval.":"No positive promotional face value is supported under the modeling assumptions.";
   $("targetEmpty").hidden=true;$("targetResults").hidden=false;$("exportstatus").textContent="";
  }catch(e){err.textContent=e.message;err.hidden=false;$("targetEmpty").hidden=true}
@@ -146,7 +156,7 @@ function summary(){
  "Game: "+r.game+" ("+(r.category==="tables"?"Table Games":"Slots")+")\n"+
  "Target average wager: "+money(r.bet)+"\n"+
  "Qualifying play: "+dec(r.hours)+" hours/day for "+r.days+" day(s)\n"+
- "Rating assumptions: "+dec(r.speed)+" decisions/spins per hour, "+pct(r.edge)+" estimated advantage/hold\n"+
+ "Rating assumptions: "+dec(r.speed)+" decisions/spins per hour, "+pct(r.edge)+(r.category==="slots"&&r.slotRateSource==="ngcb"?" NGCB historical Strip market win percent (not theoretical machine hold)":" estimated advantage/hold")+"\n"+
  "Estimated Theo: "+money(r.theo)+"\nSuggested upfront: "+money(r.upfront)+"\nAfter hurdle: "+money(r.earned)+"\n"+
  "Total suggested promo: "+money(r.total)+"\nModeled promo economic cost: "+money(r.investment)+
  "\nModel: "+REINVEST+"% hypothetical Theo reinvestment, "+PROMO_COST+"% promo economic cost, no other costs or agent fees."+
@@ -155,6 +165,7 @@ function summary(){
  "\nAdditional trip/operating costs and commissions are excluded. Offers require casino approval.";
 }
 $("category").addEventListener("change",setGameList);
+$("slotRateSource").addEventListener("change",syncSlotRate);
 $("game").addEventListener("change",calculate);
 document.querySelectorAll("input").forEach(x=>x.addEventListener("input",calculate));
 $("copy").addEventListener("click",async()=>{const t=summary();if(!t)return;try{await navigator.clipboard.writeText(t);$("exportstatus").textContent="Proposal copied."}catch(e){window.prompt("Copy proposal:",t)}});
