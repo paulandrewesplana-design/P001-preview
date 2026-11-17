@@ -5,12 +5,12 @@
 *{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}button,input,select{font:inherit}a{color:var(--blue);text-decoration:none}
 header{background:#ffffffed;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:3;backdrop-filter:blur(18px)}nav{max-width:1160px;padding:0 24px;margin:auto;display:flex;justify-content:space-between;gap:15px;align-items:center;min-height:66px}.brand{font-weight:700;letter-spacing:-.04em;color:var(--ink)}.back{font-size:13px;color:#555}
 main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}.kicker{font-size:12px;color:#936d40;letter-spacing:.14em;font-weight:800;text-transform:uppercase}.hero h1{font-size:clamp(44px,7vw,70px);letter-spacing:-.065em;margin:10px 0;line-height:1.1}.hero p{color:var(--sub);font-size:18px;line-height:1.5;max-width:790px;margin:9px 0}.release{font-size:12px;color:#647084}
-.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(350px,.9fr);gap:20px;align-items:start}.card{border:1px solid var(--line);border-radius:20px;background:white;box-shadow:0 6px 24px #17171c07;padding:25px;margin-bottom:18px}.card h2{font-size:21px;margin:0 0 6px;letter-spacing:-.025em}.step{color:#1769bf;font-size:11px;font-weight:800;letter-spacing:.13em;margin-bottom:9px}.helper{margin:0 0 22px;color:#68717b;font-size:13px;line-height:1.6}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field.wide{grid-column:1/-1}.field label{font-size:12px;font-weight:700;color:#586b80}.field input,.field select{min-height:44px;border:1px solid #cbd5e1;border-radius:9px;padding:10px 11px;background:white;color:#21334a;width:100%;outline-offset:3px}.field input:focus,.field select:focus{outline:2px solid #82b8ef}.segment{display:flex;border:1px solid #b5d0eb;border-radius:12px;background:#f3f8ff;padding:4px;gap:4px}.segment button{flex:1;border:0;border-radius:9px;background:transparent;color:#2a567e;padding:10px;font-size:14px;font-weight:700;cursor:pointer}.segment button[aria-pressed=true]{background:#06c;color:white;box-shadow:0 2px 9px #0055aa30}.note{background:#f4f8fd;border-radius:12px;padding:12px;color:#567088;font-size:12px;line-height:1.55;margin-top:14px}.note strong{color:#243f5b}.row{display:flex;gap:12px;justify-content:space-between;align-items:center}.summary{position:sticky;top:85px}.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}.metric{background:#f5f8fc;border:1px solid #dfebf7;border-radius:13px;padding:15px}.metric.primary{background:#eaf3ff}.metric small{display:block;font-size:11px;color:#6c8193;line-height:1.4}.target-card .target-metrics{margin-bottom:14px}.target-card [hidden]{display:none!important}.metric strong{display:block;font-size:clamp(21px,2.5vw,28px);margin-top:6px;overflow-wrap:anywhere}.line{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e9edf2;padding:11px 0;font-size:13px}.line strong{text-align:right}.status{padding:14px;border-radius:12px;background:#f3f5f8;border:1px solid #e1e7ee;font-size:13px;line-height:1.6;margin-top:15px}.status.ok{background:#eaf6ef;color:var(--ok);border-color:#c5e3d1}.status.warn{background:#fff6e9;color:var(--warn);border-color:#f2dfbf}.status.error{background:#fff1f1;color:#a43b3b;border-color:#f4d1d1}
+.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(350px,.9fr);gap:20px;align-items:start}.card{border:1px solid var(--line);border-radius:20px;background:white;box-shadow:0 6px 24px #17171c07;padding:25px;margin-bottom:18px}.card h2{font-size:21px;margin:0 0 6px;letter-spacing:-.025em}.step{color:#1769bf;font-size:11px;font-weight:800;letter-spacing:.13em;margin-bottom:9px}.helper{margin:0 0 22px;color:#68717b;font-size:13px;line-height:1.6}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field.wide{grid-column:1/-1}.field label{font-size:12px;font-weight:700;color:#586b80}.field input,.field select{min-height:44px;border:1px solid #cbd5e1;border-radius:9px;padding:10px 11px;background:white;color:#21334a;width:100%;outline-offset:3px}.field input:focus,.field select:focus{outline:2px solid #82b8ef}.segment{display:flex;border:1px solid #b5d0eb;border-radius:12px;background:#f3f8ff;padding:4px;gap:4px}.segment button{flex:1;border:0;border-radius:9px;background:transparent;color:#2a567e;padding:10px;font-size:14px;font-weight:700;cursor:pointer}.segment button[aria-pressed=true]{background:#06c;color:white;box-shadow:0 2px 9px #0055aa30}.note{background:#f4f8fd;border-radius:12px;padding:12px;color:#567088;font-size:12px;line-height:1.55;margin-top:14px}.note strong{color:#243f5b}.row{display:flex;gap:12px;justify-content:space-between;align-items:center}.summary{position:sticky;top:85px}.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}.metric{background:#f5f8fc;border:1px solid #dfebf7;border-radius:13px;padding:15px}.metric.primary{background:#eaf3ff}.metric small{display:block;font-size:11px;color:#6c8193;line-height:1.4}.grid{grid-template-columns:minmax(0,1fr);max-width:850px;margin:0 auto}.compact-summary{position:static}.compact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}.compact-cell{border:1px solid #dfebf7;background:#f5f8fc;border-radius:12px;padding:13px;min-width:0}.compact-cell small{display:block;color:#697c8f;font-size:11px;line-height:1.4}.compact-cell strong{display:block;font-size:clamp(17px,2vw,23px);margin-top:5px;overflow-wrap:anywhere}@media(max-width:650px){.compact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}.target-card .target-metrics{margin-bottom:14px}.target-card [hidden]{display:none!important}.metric strong{display:block;font-size:clamp(21px,2.5vw,28px);margin-top:6px;overflow-wrap:anywhere}.line{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e9edf2;padding:11px 0;font-size:13px}.line strong{text-align:right}.status{padding:14px;border-radius:12px;background:#f3f5f8;border:1px solid #e1e7ee;font-size:13px;line-height:1.6;margin-top:15px}.status.ok{background:#eaf6ef;color:var(--ok);border-color:#c5e3d1}.status.warn{background:#fff6e9;color:var(--warn);border-color:#f2dfbf}.status.error{background:#fff1f1;color:#a43b3b;border-color:#f4d1d1}
 .btnbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:17px}.btn{background:var(--blue);color:white;border:1px solid var(--blue);border-radius:9px;padding:11px 16px;font-weight:700;cursor:pointer}.btn.alt{background:white;color:var(--blue)}.btn:disabled{opacity:.5;cursor:not-allowed}.muted{font-size:12px;color:#7b8290;line-height:1.6}.footer{padding-top:18px;border-top:1px solid #dce0e7;margin-top:25px}.warn-text{color:#a06d17}#results[hidden],#slotNotice[hidden]{display:none!important}@media(max-width:850px){.grid{grid-template-columns:1fr}.summary{position:static}}@media(max-width:600px){main{padding:0 16px 45px}nav{padding:0 16px}.hero{padding:32px 0 14px}.fields{gap:11px}.card{padding:18px}.metrics{grid-template-columns:1fr 1fr}.metric strong{font-size:22px}.field label{font-size:11px}}
 @media print{header,.btnbar,.segment,.back{display:none!important}main{max-width:none}.grid{display:block}.card{box-shadow:none;break-inside:avoid}.summary{position:static}body{background:white}}
 </style></head><body>
 <header><nav><a class="brand" href="https://www.paulandrewesplana.com/">Paul Andrew Esplana</a><a class="back" href="../../studio.html">← Back to iA Studio</a></nav></header>
-<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Enter a target average wager to model a promotion, or enter the requested offer directly. Review expected customer play and transparent casino economics together.</p><div class="release">v1.2 Target Bet Recommendation · Not an approved casino offer or rating</div></section>
+<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Enter a target average wager to model a promotion, or enter the requested offer directly. Review expected customer play and transparent casino economics together.</p><div class="release">v1.3 Simplified Proposal · Not an approved casino offer or rating</div></section>
 <div class="grid"><div>
 <section class="card target-card"><div class="step">01 / TARGET AVERAGE BET</div><h2>Target Bet → Suggested Promo</h2><p class="helper">Enter the customer's expected average wager. Suggested promotional values use the game, playing days, qualifying hours and illustrative casino economics shown below. No preset wager buttons.</p>
 <div class="fields">
@@ -31,6 +31,21 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 <div class="note" id="targetNote">Rounded down to $50 increments, using a 62.5% upfront / 37.5% earned split. Cost and rating assumptions are illustrative, not approved casino policy.</div>
 <div class="btnbar"><button id="applyTarget" class="btn" type="button">Use Suggested Promo in Proposal</button></div>
 </div></section>
+<section class="card compact-summary"><div class="step">PROPOSAL SUMMARY</div><h2>Current proposal at a glance</h2><p class="helper">Live summary of the entered or applied proposal. Update any promotion or play input to refresh it.</p>
+<div id="error" class="status error" role="alert" hidden></div>
+<div id="results">
+<div class="compact-grid">
+<div class="compact-cell"><small>Upfront promo</small><strong id="summaryUpfront">—</strong></div>
+<div class="compact-cell"><small>After qualifying play</small><strong id="summaryEarned">—</strong></div>
+<div class="compact-cell"><small>Average wager</small><strong id="summaryBet">—</strong></div>
+<div class="compact-cell"><small>Proposed hours / day</small><strong id="qualifyingHours">—</strong></div>
+<div class="compact-cell"><small>Estimated trip Theo</small><strong id="theo">—</strong></div>
+<div class="compact-cell"><small>Total modeled casino investment</small><strong id="investment">—</strong></div>
+</div>
+<div id="verdict" class="status" role="status"></div>
+<p class="muted" id="earnedGuideline">A qualifying play requirement is a proposed release condition, not a guarantee of economic sufficiency or an authorized casino offer.</p>
+<div class="btnbar"><button id="copy" class="btn" type="button">Copy Proposal Summary</button><button id="print" class="btn alt" type="button">Print Proposal</button></div>
+<div class="muted" id="exportstatus" role="status" style="margin-top:7px"></div></div></section>
 <section class="card"><div class="step">02 / REQUESTED PROMOTION</div><h2>Proposed player benefits</h2><p class="helper">Start with the independent agent's requested offer and when the additional benefit becomes eligible. These are proposals—not approved offers.</p>
 <div class="fields">
 <div class="field"><label for="upfront">Upfront promotion face value ($)</label><input id="upfront" type="number" min="0" step="any" value="1000"></div>
@@ -54,20 +69,7 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 <div class="field"><label for="commission">Agent commissions / fees ($)</label><input id="commission" type="number" min="0" step="any" value="0"></div>
 </div><div class="note"><strong>Illustrative, not policy:</strong> The 100% promo cost and 30% Theo reinvestment ceiling are editable modeling assumptions, not approved PENN or M Resort terms. Do not enter confidential internal arrangements in this public tool.</div></section>
 </div>
-<aside class="card summary"><div class="step">05 / SHARED PROPOSAL RESULTS</div><h2>Promo &amp; play evaluation</h2><p class="helper">One transparent view for the agent and casino contact. Calculations occur in your browser; this tool does not transmit customer information.</p>
-<div id="error" class="status error" role="alert" hidden></div>
-<div id="results">
-<div class="metrics"><div class="metric primary"><small>Estimated Trip Theo</small><strong id="theo">$0.00</strong></div><div class="metric"><small>Requested promo face value</small><strong id="promo">$0.00</strong></div><div class="metric"><small>Modeled total casino investment</small><strong id="investment">$0.00</strong></div><div class="metric"><small>Modeled investment / Theo</small><strong id="ratio">0%</strong></div></div>
-<div class="line"><span>Illustrative allowance at selected ceiling</span><strong id="allowance">—</strong></div>
-<div class="line"><span>Estimated Theo remaining after modeled costs</span><strong id="net">—</strong></div>
-<div class="line"><span>Required Theo for proposal</span><strong id="requiredTheo">—</strong></div>
-<div class="line"><span>Proposed qualifying hours / day</span><strong id="qualifyingHours">—</strong></div><div class="line"><span>Modeled economic hurdle hours / day</span><strong id="requiredHours">—</strong></div>
-<div class="line"><span>Modeled average wager hurdle at proposed hours</span><strong id="requiredBet">—</strong></div>
-<div class="status" id="verdict" role="status"></div>
-<div class="note" id="earnedGuideline">The after-hurdle benefit should be released only after the casino verifies qualifying play and approves the conditions.</div>
-<div class="btnbar"><button id="copy" class="btn" type="button">Copy Proposal Summary</button><button id="print" class="btn alt" type="button">Print Proposal</button></div><div class="muted" id="exportstatus" role="status" style="margin-top:7px"></div>
 </div>
-</aside></div>
 <div class="footer muted">Formula for table games: estimated trip Theo = average rated bet × estimated decisions/hour × hours/day × playing days × estimated rating advantage. For slots: wager/spin × spins/hour × hours/day × playing days × theoretical hold. The slot assumptions are not prefilled because game-specific values must be provided. Promotional valuation, casino ratings, reinvestment policy and release milestones require casino approval. <a href="https://www.gaming.nv.gov/siteassets/content/regs/gaming-statutes--regulations/regulation-25-as-of-04-26.pdf" target="_blank" rel="noopener noreferrer">Nevada Regulation 25 (Theo definition)</a>. Historical table-game defaults: <a href="https://wizardofodds.com/ask-the-wizard/184/" target="_blank" rel="noopener noreferrer">Wizard of Odds player-rating example</a>. This calculator does not predict actual results or authorize offers.</div>
 </main>
 <script>
@@ -117,19 +119,19 @@ const promo=upfront+earned,investment=promo*factor/100+expenses+commission;
 const requiredTheo=investment/(reinvest/100),allowance=totalTheo*reinvest/100;
 const requiredHours=hourlyTheo>0?requiredTheo/(hourlyTheo*days):null;
 const requiredBet=(speed*hours*days*edge/100)>0?requiredTheo/(speed*hours*days*edge/100):null;
-if(![hourlyTheo,totalTheo,promo,investment,requiredTheo,allowance].every(Number.isFinite)||requiredHours!==null&&!Number.isFinite(requiredHours)||requiredBet!==null&&!Number.isFinite(requiredBet))throw Error("The numbers are too large; reduce inputs.");
+if(![hourlyTheo,totalTheo,promo,investment,requiredTheo,allowance,totalTheo-investment].every(Number.isFinite)||requiredHours!==null&&!Number.isFinite(requiredHours)||requiredBet!==null&&!Number.isFinite(requiredBet))throw Error("Numbers are too large; reduce inputs.");
 result={category,game:game[0],bet,hours,days,speed,edge,upfront,earned,factor,expenses,commission,reinvest,totalTheo,promo,investment,requiredTheo,requiredHours,requiredBet,allowance};
 $("error").hidden=true;$("results").hidden=false;
-$("theo").textContent=money(totalTheo);$("promo").textContent=money(promo);$("investment").textContent=money(investment);
-$("ratio").textContent=totalTheo>0?pct(investment/totalTheo*100):"—";
-$("allowance").textContent=money(allowance);$("net").textContent=money(totalTheo-investment);
-$("requiredTheo").textContent=money(requiredTheo);$("qualifyingHours").textContent=decimal(hours)+" hrs/day";
-$("requiredHours").textContent=requiredHours===null?"N/A (no modeled Theo)":decimal(requiredHours)+" hrs/day";
-$("requiredBet").textContent=requiredBet===null?"N/A (no modeled Theo)":money(requiredBet);
+$("summaryUpfront").textContent=money(upfront);
+$("summaryEarned").textContent=money(earned);
+$("summaryBet").textContent=money(bet);
+$("qualifyingHours").textContent=decimal(hours)+" hrs/day";
+$("theo").textContent=money(totalTheo);
+$("investment").textContent=money(investment);
 const ok=investment<=allowance&&totalTheo>0;
 $("verdict").className="status "+(ok?"ok":"warn");
-$("verdict").textContent=ok?"Within selected illustrative reinvestment ceiling. This is not casino approval.":"Modeled investment exceeds the selected illustrative ceiling. Consider less promotional value, more rated play, or an approved exception; this does not mean automatic denial.";
-$("earnedGuideline").textContent="Suggested structure: "+money(upfront)+" upfront; "+money(earned)+" only after documented qualifying play and casino approval. The modeled economic hours/bet shown above support the estimated investment at the chosen ceiling. The proposed release condition is "+decimal(hours)+" hours/day; it is not proof that the investment is financially justified.";
+$("verdict").textContent=ok?"Within selected illustrative reinvestment ceiling. Not casino approval.":"Proposed cost exceeds the selected illustrative reinvestment ceiling. Revise the proposal or seek casino review.";
+$("earnedGuideline").textContent="Suggested release condition: "+money(upfront)+" upfront and "+money(earned)+" after "+decimal(hours)+" qualifying hours/day, subject to approved conditions. Modeled economic hurdle: "+(requiredHours===null?"not calculable":decimal(requiredHours)+" hours/day")+" at "+money(bet)+" average wager. Release conditions and economic hurdles may differ.";
 $("exportstatus").textContent="";
 }catch(e){result=null;$("error").hidden=false;$("error").textContent=e.message;$("results").hidden=true;}
 }
@@ -182,7 +184,7 @@ function recommendTarget(){
 
 function summary(){
 if(!result)return null;const r=result;
-return "HURDLE CALCULATOR v1.2 — TARGET BET + UNIFIED PROPOSAL (NOT APPROVED)\n"+
+return "HURDLE CALCULATOR v1.3 — SIMPLIFIED PROPOSAL (NOT APPROVED)\n"+
 "Gaming category: "+(r.category==="tables"?"Table Games":"Slots")+" | Game: "+r.game+
 "\nProposed qualifying hours/day: "+decimal(r.hours)+"\nAverage wager: "+money(r.bet)+" | Hours/day: "+decimal(r.hours)+" | Days: "+r.days+
 "\nRate: "+decimal(r.speed)+" decisions/spins per hour | Estimated advantage/hold: "+pct(r.edge)+
