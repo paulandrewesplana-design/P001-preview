@@ -54,8 +54,6 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 <div class="line"><span>Modeled promotional cost plus other expenses</span><strong id="targetInvestment">—</strong></div>
 <div class="line"><span>Modeled investment / Theo</span><strong id="targetRatio">—</strong></div>
 <div class="note" id="targetNote">Values are estimated, not a guaranteed outcome or authorized casino offer. Actual rating parameters and costs must be confirmed with the casino.</div>
-<div class="btnbar"><button id="copy" class="btn" type="button">Copy Proposal</button><button id="print" class="btn alt" type="button">Print Proposal</button></div>
-<div class="muted" id="exportstatus" role="status" style="margin-top:8px"></div>
 </div>
 </section>
 
@@ -122,28 +120,13 @@ function calculate(){
   $("theoLabel").textContent=category==="slots"&&$("slotRateSource").value==="ngcb"?"Modeled value (historical market proxy)":"Estimated trip Theo";
  $("assumptionsNote").textContent=category==="tables"?"Historical industry rating estimate: "+game[0]+", "+dec(speed)+" decisions/hour, "+pct(edge)+" rating advantage. Hypothetical "+REINVEST+"% reinvestment, 100% promo cost, no additional costs. Not casino policy.":$("slotRateSource").value==="ngcb"?"NGCB Las Vegas Strip 12-month observed slot win: 7.76% (Oct 2025–Sep 2026). Historical market proxy only, not the machine's theoretical hold. User-entered play speed. Hypothetical 30% reinvestment and 100% promo cost; not casino policy.":"Using user-entered verified machine hold and play speed. Hypothetical 30% reinvestment and 100% promo cost; not casino policy.";
   $("targetNote").textContent=total>0?"Suggestions are rounded down to $50 increments with an approximate 62.5% upfront / 37.5% conditional split. Subject to verified play and casino approval.":"No positive promotional face value is supported under the modeling assumptions.";
-  $("targetEmpty").hidden=true;$("targetResults").hidden=false;$("exportstatus").textContent="";
+  $("targetEmpty").hidden=true;$("targetResults").hidden=false;
  }catch(e){err.textContent=e.message;err.hidden=false;$("targetEmpty").hidden=true}
-}
-function summary(){
- if(!result)return null;const r=result;
- return "HURDLE CALCULATOR v1.8 — ILLUSTRATIVE OFFER, NOT APPROVED\n"+
- "Game: "+r.game+" ("+(r.category==="tables"?"Table Games":"Slots")+")\n"+
- "Historical average bet supplied by agent: "+money(r.bet)+"\n"+
- "Qualifying play: "+dec(r.hours)+" hours/day for "+r.days+" day(s)\n"+
- "Rating assumptions: "+dec(r.speed)+" decisions/spins per hour, "+pct(r.edge)+(r.category==="slots"&&r.slotRateSource==="ngcb"?" NGCB historical Strip market win percent (not theoretical machine hold)":" estimated advantage/hold")+"\n"+
- "Estimated Theo / modeled value: "+money(r.theo)+"\n"+
- "Suggested upfront: "+money(r.upfront)+"\nAfter hurdle: "+money(r.earned)+"\n"+
- "Total suggested promo: "+money(r.total)+"\nModeled promotional cost: "+money(r.investment)+"\n"+
- "Model assumptions: "+REINVEST+"% hypothetical Theo reinvestment, "+PROMO_COST+"% promotional economic cost, no additional trip costs or commissions.\n"+
- "This is a nonbinding promotional illustration, not casino policy. Offer subject to casino approval.";
 }
 $("category").addEventListener("change",setGameList);
 $("slotRateSource").addEventListener("change",syncSlotRate);
 $("game").addEventListener("change",calculate);
 document.querySelectorAll("input").forEach(x=>x.addEventListener("input",calculate));
-$("copy").addEventListener("click",async()=>{const t=summary();if(!t)return;try{await navigator.clipboard.writeText(t);$("exportstatus").textContent="Proposal copied."}catch(e){window.prompt("Copy proposal:",t)}});
-$("print").addEventListener("click",()=>{if(result)window.print()});
 setGameList();
 })();
 </script></body></html>
