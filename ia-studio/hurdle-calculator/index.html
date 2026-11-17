@@ -21,12 +21,12 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 @media(min-width:680px){.target-card .target-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .benchmark-value{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;background:#f0f6ff;border:1px solid #b9d8f6;border-radius:11px;color:#23466a;line-height:1.5}.benchmark-value strong{font-size:23px;color:#0066cc}.benchmark-value a{font-size:12px;font-weight:700;text-align:right}.benchmark-value small{font-size:11px;color:#586e83}.focused-layout [hidden]{display:none!important}@media(max-width:550px){.benchmark-value{align-items:flex-start;flex-direction:column}.benchmark-value a{text-align:left}}</style></head><body>
 <header><nav><a class="brand" href="https://www.paulandrewesplana.com/">Paul Andrew Esplana</a><a class="back" href="../../studio.html">← Back to iA Studio</a></nav></header>
-<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Enter a target wager, select the game and playing time, and review the suggested promotion and projected contribution in one place.</p><div class="release">v1.6 NGCB Slot Benchmark · Modeling estimates only</div></section>
+<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Enter an established casino player’s historical average wager, select the game and playing time, and model a first-visit promotional proposal without discounting the agent’s reported rating.</p><div class="release">v1.7 Agent Historical Rating · Illustrative offers only</div></section>
 <div class="focused-layout">
 <section class="card target-card">
-<div class="step">01 / TARGET AVERAGE BET</div><h2>Target Bet → Suggested Promo</h2>
-<p class="helper">Enter the player's target average wager to estimate an upfront promotion, a conditional additional promotion and the qualifying play requirement.</p>
-<div class="field"><label for="targetBet">Customer target average wager ($)</label><input id="targetBet" type="number" min="0" step="any" placeholder="Enter expected average bet" autocomplete="off"></div>
+<div class="step">01 / HISTORICAL AVERAGE BET</div><h2>Historical Bet → Suggested Promo</h2>
+<p class="helper">Enter the customer's historical average bet reported by the independent agent to model an introductory promotion and proposed qualifying play. No automatic discount is applied to the agent's rating.</p>
+<div class="field"><label for="targetBet">Customer Historical Average Bet ($)</label><input id="targetBet" type="number" min="0" step="any" placeholder="Enter historical average bet" autocomplete="off"></div>
 <div class="field" style="margin-top:14px"><label for="category">Gaming category</label><select id="category"><option value="tables">Table Games</option><option value="slots">Slots</option></select></div>
 <div class="fields" style="margin-top:14px">
 <div class="field wide"><label for="game">Game / slot category</label><select id="game"></select></div>
@@ -72,7 +72,7 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 </section>
 
 </div>
-<div class="footer muted">Formula for table games: estimated trip Theo = average rated bet × estimated decisions/hour × hours/day × playing days × estimated rating advantage. For slots: wager/spin × spins/hour × hours/day × playing days × theoretical hold. Slot benchmark option: Nevada Gaming Control Board, September 2026 report, Las Vegas Strip area, all slot machines, 12-month actual win percent 7.76% (https://www.gaming.nv.gov/about-us/gaming-revenue-information-gri/). Market win percent is an empirical proxy only—not a machine theoretical hold or regulator-approved casino rating. Slot speed remains a user-supplied estimate. Promotional valuation, casino ratings, reinvestment policy and release milestones require casino approval. <a href="https://www.gaming.nv.gov/siteassets/content/regs/gaming-statutes--regulations/regulation-25-as-of-04-26.pdf" target="_blank" rel="noopener noreferrer">Nevada Regulation 25 (Theo definition)</a>. Historical table-game defaults: <a href="https://wizardofodds.com/ask-the-wizard/184/" target="_blank" rel="noopener noreferrer">Wizard of Odds player-rating example</a>. This calculator does not predict actual results or authorize offers.</div>
+<div class="footer muted">Formula for table games: estimated trip Theo = average rated bet × estimated decisions/hour × hours/day × playing days × estimated rating advantage. For slots: wager/spin × spins/hour × hours/day × playing days × theoretical hold. Historical customer play is modeled at the agent-reported average wager without an automatic reduction. Slot benchmark option: Nevada Gaming Control Board, September 2026 report, Las Vegas Strip area, all slot machines, 12-month actual win percent 7.76% (https://www.gaming.nv.gov/about-us/gaming-revenue-information-gri/). Market win percent is an empirical proxy only—not a machine theoretical hold or regulator-approved casino rating. Slot speed remains a user-supplied estimate. Promotional valuation, casino ratings, reinvestment policy and release milestones require casino approval. <a href="https://www.gaming.nv.gov/siteassets/content/regs/gaming-statutes--regulations/regulation-25-as-of-04-26.pdf" target="_blank" rel="noopener noreferrer">Nevada Regulation 25 (Theo definition)</a>. Historical table-game defaults: <a href="https://wizardofodds.com/ask-the-wizard/184/" target="_blank" rel="noopener noreferrer">Wizard of Odds player-rating example</a>. This calculator does not predict actual results or authorize offers.</div>
 </main>
 <script>
 (()=>{
@@ -110,7 +110,7 @@ function syncSlotRate(){
 function calculate(){
  result=null;
  const err=$("targetError");err.hidden=true;$("targetResults").hidden=true;$("targetEmpty").hidden=false;
- if($("targetBet").value.trim()===""){$("targetEmpty").textContent="Enter a target average wager to calculate an illustrative promotional recommendation.";return}
+ if($("targetBet").value.trim()===""){$("targetEmpty").textContent="Enter the player’s historical average bet to calculate an illustrative promotional recommendation.";return}
  try{
   const bet=get("targetBet",.0000001,null),hours=get("hours",.0000001,24),days=get("days",1,365,true),category=$("category").value;
   const game=games[category][Number($("game").value)];
@@ -152,9 +152,9 @@ function calculate(){
 }
 function summary(){
  if(!result)return null;const r=result;
- return "HURDLE CALCULATOR v1.5 — ILLUSTRATIVE, NOT APPROVED\n"+
+ return "HURDLE CALCULATOR v1.7 — ILLUSTRATIVE, NOT APPROVED\n"+
  "Game: "+r.game+" ("+(r.category==="tables"?"Table Games":"Slots")+")\n"+
- "Target average wager: "+money(r.bet)+"\n"+
+ "Historical average bet supplied by agent: "+money(r.bet)+"\n"+
  "Qualifying play: "+dec(r.hours)+" hours/day for "+r.days+" day(s)\n"+
  "Rating assumptions: "+dec(r.speed)+" decisions/spins per hour, "+pct(r.edge)+(r.category==="slots"&&r.slotRateSource==="ngcb"?" NGCB historical Strip market win percent (not theoretical machine hold)":" estimated advantage/hold")+"\n"+
  "Estimated Theo: "+money(r.theo)+"\nSuggested upfront: "+money(r.upfront)+"\nAfter hurdle: "+money(r.earned)+"\n"+
