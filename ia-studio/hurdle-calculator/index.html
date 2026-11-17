@@ -10,38 +10,40 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 @media print{header,.btnbar,.segment,.back{display:none!important}main{max-width:none}.grid{display:block}.card{box-shadow:none;break-inside:avoid}.summary{position:static}body{background:white}}
 </style></head><body>
 <header><nav><a class="brand" href="https://www.paulandrewesplana.com/">Paul Andrew Esplana</a><a class="back" href="../../studio.html">← Back to iA Studio</a></nav></header>
-<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Model the play needed to support a promotional proposal. Compare estimated casino value, promotional expense, and the hours or average wager needed to meet a proposed hurdle.</p><div class="release">v1.0 Review Preview · Not an approved casino offer or rating</div></section>
+<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Begin with the promotional request, then review expected customer play and the casino economics together. Compare the proposed qualifying hours with the modeled financial hurdle.</p><div class="release">v1.1 Unified Proposal · Not an approved casino offer or rating</div></section>
 <div class="grid"><div>
-<section class="card"><div class="step">01 / PLAYER GAMING ACTIVITY</div><h2>Customer play profile</h2><p class="helper">Select Table Games or Slots. The $2,800 starting wager is editable for every category.</p>
+<section class="card"><div class="step">01 / REQUESTED PROMOTION</div><h2>Proposed player benefits</h2><p class="helper">Start with the independent agent's requested offer and when the additional benefit becomes eligible. These are proposals—not approved offers.</p>
+<div class="fields">
+<div class="field"><label for="upfront">Upfront promotion face value ($)</label><input id="upfront" type="number" min="0" step="any" value="1000"></div>
+<div class="field"><label for="earned">After-hurdle promotion face value ($)</label><input id="earned" type="number" min="0" step="any" value="1000"></div>
+<div class="field wide"><label for="hours">Proposed qualifying play hours per day</label><input id="hours" type="number" min="0" max="24" step="any" value="4"></div></div>
+<div class="note"><strong>Qualifying play is not economic approval.</strong> The proposed hours indicate when the additional benefit might become eligible. The estimated casino-economic hurdle is calculated separately below.</div></section>
+<section class="card"><div class="step">02 / EXPECTED CUSTOMER PLAY</div><h2>Customer play expectations</h2><p class="helper">Select Table Games or Slots, the expected wager and number of playing days. The $2,800 starting wager is editable.</p>
 <div class="field wide"><label>Gaming category</label><div class="segment" role="group" aria-label="Gaming category"><button type="button" data-category="tables" aria-pressed="true">Table Games</button><button type="button" data-category="slots" aria-pressed="false">Slots</button></div></div>
 <div class="fields" style="margin-top:16px">
 <div class="field wide"><label for="game">Game / slot category</label><select id="game"></select></div>
 <div class="field"><label for="bet" id="betLabel">Average rated bet ($)</label><input id="bet" type="number" min="0" step="any" value="2800"></div>
-<div class="field"><label for="hours">Playing hours per day</label><input id="hours" type="number" min="0" step="any" value="4"></div>
 <div class="field"><label for="days">Playing days</label><input id="days" type="number" min="1" max="365" step="1" value="1"></div>
 <div class="field"><label for="speed" id="speedLabel">Estimated decisions per hour</label><input id="speed" type="number" min="0" step="any" value="72"></div>
-<div class="field wide"><label for="edge" id="edgeLabel">Estimated rating advantage (%)</label><input id="edge" type="number" min="0" max="100" step="any" value="1.2"></div>
-</div>
-<div class="note" id="categoryNotice"><strong>Table Games:</strong> Defaults are historical casino player-rating estimates, not official house edges or property-specific rating policies. Adjust to the rating assumptions applicable to the proposed trip.</div></section>
-<section class="card"><div class="step">02 / PROMOTIONAL PROPOSAL</div><h2>Proposed player benefits</h2><p class="helper">Separate upfront value from the benefit earned only after qualifying play. Both are proposals—not approved offers.</p><div class="fields">
-<div class="field"><label for="upfront">Upfront promotion face value ($)</label><input id="upfront" type="number" min="0" step="any" value="500"></div>
-<div class="field"><label for="earned">After-hurdle promotion face value ($)</label><input id="earned" type="number" min="0" step="any" value="500"></div>
+<div class="field"><label for="edge" id="edgeLabel">Estimated rating advantage (%)</label><input id="edge" type="number" min="0" max="100" step="any" value="1.2"></div>
+</div><div class="note" id="categoryNotice"><strong>Table Games:</strong> Defaults are historical player-rating examples. Actual casino parameters may differ.</div></section>
+<section class="card"><div class="step">03 / SHARED CASINO ECONOMICS</div><h2>Transparent proposal economics</h2><p class="helper">The independent agent and casino reviewer see the same estimated costs and hurdle assumptions. Use only non-confidential planning values.</p>
+<div class="fields">
 <div class="field"><label for="costFactor">Estimated promo economic cost (%)</label><input id="costFactor" type="number" min="0" max="100" step="any" value="100"></div>
+<div class="field"><label for="reinvest">Illustrative total reinvestment ceiling (% of Theo)</label><input id="reinvest" type="number" min="0" max="100" step="any" value="30"></div>
 <div class="field"><label for="expenses">Other trip costs ($)</label><input id="expenses" type="number" min="0" step="any" value="0"></div>
 <div class="field"><label for="commission">Agent commissions / fees ($)</label><input id="commission" type="number" min="0" step="any" value="0"></div>
-<div class="field"><label for="reinvest">Illustrative total reinvestment ceiling (% of Theo)</label><input id="reinvest" type="number" min="1" max="100" step="any" value="30"></div>
-</div><div class="note"><strong>Economic cost:</strong> The default 100% assumes promotion face value equals casino cost. Adjust only with a verified cost basis. The reinvestment ceiling is editable and illustrative; it is not a PENN or M Resort policy.</div>
-</section>
+</div><div class="note"><strong>Illustrative, not policy:</strong> The 100% promo cost and 30% Theo reinvestment ceiling are editable modeling assumptions, not approved PENN or M Resort terms. Do not enter confidential internal arrangements in this public tool.</div></section>
 </div>
-<aside class="card summary"><div class="step">03 / MODELLED HURDLE</div><h2>Proposal evaluation</h2><p class="helper">A working estimate for agent/casino discussion. No customer data is transmitted by this tool.</p>
+<aside class="card summary"><div class="step">04 / SHARED PROPOSAL RESULTS</div><h2>Promo &amp; play evaluation</h2><p class="helper">One transparent view for the agent and casino contact. Calculations occur in your browser; this tool does not transmit customer information.</p>
 <div id="error" class="status error" role="alert" hidden></div>
 <div id="results">
 <div class="metrics"><div class="metric primary"><small>Estimated Trip Theo</small><strong id="theo">$0.00</strong></div><div class="metric"><small>Requested promo face value</small><strong id="promo">$0.00</strong></div><div class="metric"><small>Modeled total casino investment</small><strong id="investment">$0.00</strong></div><div class="metric"><small>Modeled investment / Theo</small><strong id="ratio">0%</strong></div></div>
 <div class="line"><span>Illustrative allowance at selected ceiling</span><strong id="allowance">—</strong></div>
 <div class="line"><span>Estimated Theo remaining after modeled costs</span><strong id="net">—</strong></div>
 <div class="line"><span>Required Theo for proposal</span><strong id="requiredTheo">—</strong></div>
-<div class="line"><span>Required hours per playing day at entered wager</span><strong id="requiredHours">—</strong></div>
-<div class="line"><span>Required average wager at entered hours</span><strong id="requiredBet">—</strong></div>
+<div class="line"><span>Proposed qualifying hours / day</span><strong id="qualifyingHours">—</strong></div><div class="line"><span>Modeled economic hurdle hours / day</span><strong id="requiredHours">—</strong></div>
+<div class="line"><span>Modeled average wager hurdle at proposed hours</span><strong id="requiredBet">—</strong></div>
 <div class="status" id="verdict" role="status"></div>
 <div class="note" id="earnedGuideline">The after-hurdle benefit should be released only after the casino verifies qualifying play and approves the conditions.</div>
 <div class="btnbar"><button id="copy" class="btn" type="button">Copy Proposal Summary</button><button id="print" class="btn alt" type="button">Print Proposal</button></div><div class="muted" id="exportstatus" role="status" style="margin-top:7px"></div>
@@ -102,21 +104,21 @@ $("error").hidden=true;$("results").hidden=false;
 $("theo").textContent=money(totalTheo);$("promo").textContent=money(promo);$("investment").textContent=money(investment);
 $("ratio").textContent=totalTheo>0?pct(investment/totalTheo*100):"—";
 $("allowance").textContent=money(allowance);$("net").textContent=money(totalTheo-investment);
-$("requiredTheo").textContent=money(requiredTheo);
+$("requiredTheo").textContent=money(requiredTheo);$("qualifyingHours").textContent=decimal(hours)+" hrs/day";
 $("requiredHours").textContent=requiredHours===null?"N/A (no modeled Theo)":decimal(requiredHours)+" hrs/day";
 $("requiredBet").textContent=requiredBet===null?"N/A (no modeled Theo)":money(requiredBet);
 const ok=investment<=allowance&&totalTheo>0;
 $("verdict").className="status "+(ok?"ok":"warn");
 $("verdict").textContent=ok?"Within selected illustrative reinvestment ceiling. This is not casino approval.":"Modeled investment exceeds the selected illustrative ceiling. Consider less promotional value, more rated play, or an approved exception; this does not mean automatic denial.";
-$("earnedGuideline").textContent="Suggested structure: "+money(upfront)+" upfront; "+money(earned)+" only after documented qualifying play and casino approval. The required hours/bet above support the entire modeled investment at the chosen ceiling; they do not establish a casino policy.";
+$("earnedGuideline").textContent="Suggested structure: "+money(upfront)+" upfront; "+money(earned)+" only after documented qualifying play and casino approval. The modeled economic hours/bet shown above support the estimated investment at the chosen ceiling. The proposed release condition is "+decimal(hours)+" hours/day; it is not proof that the investment is financially justified.";
 $("exportstatus").textContent="";
 }catch(e){result=null;$("error").hidden=false;$("error").textContent=e.message;$("results").hidden=true;}
 }
 function summary(){
 if(!result)return null;const r=result;
-return "HURDLE CALCULATOR v1.0 — PROPOSAL (NOT APPROVED)\n"+
+return "HURDLE CALCULATOR v1.1 — UNIFIED PROPOSAL (NOT APPROVED)\n"+
 "Gaming category: "+(r.category==="tables"?"Table Games":"Slots")+" | Game: "+r.game+
-"\nAverage wager: "+money(r.bet)+" | Hours/day: "+decimal(r.hours)+" | Days: "+r.days+
+"\nProposed qualifying hours/day: "+decimal(r.hours)+"\nAverage wager: "+money(r.bet)+" | Hours/day: "+decimal(r.hours)+" | Days: "+r.days+
 "\nRate: "+decimal(r.speed)+" decisions/spins per hour | Estimated advantage/hold: "+pct(r.edge)+
 "\nEstimated trip Theo: "+money(r.totalTheo)+
 "\nProposed upfront: "+money(r.upfront)+" | After hurdle: "+money(r.earned)+
@@ -125,7 +127,7 @@ return "HURDLE CALCULATOR v1.0 — PROPOSAL (NOT APPROVED)\n"+
 "\nModeled total casino investment: "+money(r.investment)+
 "\nSelected illustrative reinvestment ceiling: "+pct(r.reinvest)+
 "\nRequired Theo: "+money(r.requiredTheo)+
-"\nRequired hours/day at current wager: "+(r.requiredHours===null?"N/A":decimal(r.requiredHours))+
+"\nModeled economic hurdle hours/day: "+(r.requiredHours===null?"N/A":decimal(r.requiredHours))+
 "\nRequired average wager at current play: "+(r.requiredBet===null?"N/A":money(r.requiredBet))+
 "\nDisclaimer: Historical/entered rating assumptions only; confirm with your on-property casino contact. Proposal subject to casino approval.";
 }
