@@ -8,67 +8,72 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 .grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(350px,.9fr);gap:20px;align-items:start}.card{border:1px solid var(--line);border-radius:20px;background:white;box-shadow:0 6px 24px #17171c07;padding:25px;margin-bottom:18px}.card h2{font-size:21px;margin:0 0 6px;letter-spacing:-.025em}.step{color:#1769bf;font-size:11px;font-weight:800;letter-spacing:.13em;margin-bottom:9px}.helper{margin:0 0 22px;color:#68717b;font-size:13px;line-height:1.6}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field.wide{grid-column:1/-1}.field label{font-size:12px;font-weight:700;color:#586b80}.field input,.field select{min-height:44px;border:1px solid #cbd5e1;border-radius:9px;padding:10px 11px;background:white;color:#21334a;width:100%;outline-offset:3px}.field input:focus,.field select:focus{outline:2px solid #82b8ef}.segment{display:flex;border:1px solid #b5d0eb;border-radius:12px;background:#f3f8ff;padding:4px;gap:4px}.segment button{flex:1;border:0;border-radius:9px;background:transparent;color:#2a567e;padding:10px;font-size:14px;font-weight:700;cursor:pointer}.segment button[aria-pressed=true]{background:#06c;color:white;box-shadow:0 2px 9px #0055aa30}.note{background:#f4f8fd;border-radius:12px;padding:12px;color:#567088;font-size:12px;line-height:1.55;margin-top:14px}.note strong{color:#243f5b}.row{display:flex;gap:12px;justify-content:space-between;align-items:center}.summary{position:sticky;top:85px}.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}.metric{background:#f5f8fc;border:1px solid #dfebf7;border-radius:13px;padding:15px}.metric.primary{background:#eaf3ff}.metric small{display:block;font-size:11px;color:#6c8193;line-height:1.4}.grid{grid-template-columns:minmax(0,1fr);max-width:850px;margin:0 auto}.compact-summary{position:static}.compact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}.compact-cell{border:1px solid #dfebf7;background:#f5f8fc;border-radius:12px;padding:13px;min-width:0}.compact-cell small{display:block;color:#697c8f;font-size:11px;line-height:1.4}.compact-cell strong{display:block;font-size:clamp(17px,2vw,23px);margin-top:5px;overflow-wrap:anywhere}@media(max-width:650px){.compact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}.target-card .target-metrics{margin-bottom:14px}.target-card [hidden]{display:none!important}.metric strong{display:block;font-size:clamp(21px,2.5vw,28px);margin-top:6px;overflow-wrap:anywhere}.line{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e9edf2;padding:11px 0;font-size:13px}.line strong{text-align:right}.status{padding:14px;border-radius:12px;background:#f3f5f8;border:1px solid #e1e7ee;font-size:13px;line-height:1.6;margin-top:15px}.status.ok{background:#eaf6ef;color:var(--ok);border-color:#c5e3d1}.status.warn{background:#fff6e9;color:var(--warn);border-color:#f2dfbf}.status.error{background:#fff1f1;color:#a43b3b;border-color:#f4d1d1}
 .btnbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:17px}.btn{background:var(--blue);color:white;border:1px solid var(--blue);border-radius:9px;padding:11px 16px;font-weight:700;cursor:pointer}.btn.alt{background:white;color:var(--blue)}.btn:disabled{opacity:.5;cursor:not-allowed}.muted{font-size:12px;color:#7b8290;line-height:1.6}.footer{padding-top:18px;border-top:1px solid #dce0e7;margin-top:25px}.warn-text{color:#a06d17}#results[hidden],#slotNotice[hidden]{display:none!important}@media(max-width:850px){.grid{grid-template-columns:1fr}.summary{position:static}}@media(max-width:600px){main{padding:0 16px 45px}nav{padding:0 16px}.hero{padding:32px 0 14px}.fields{gap:11px}.card{padding:18px}.metrics{grid-template-columns:1fr 1fr}.metric strong{font-size:22px}.field label{font-size:11px}}
 @media print{header,.btnbar,.segment,.back{display:none!important}main{max-width:none}.grid{display:block}.card{box-shadow:none;break-inside:avoid}.summary{position:static}body{background:white}}
+
+/* v1.4: focused wager-first UI with optional transparent assumptions */
+.focused-layout{max-width:790px;margin:0 auto}.focused-layout .card{margin-bottom:17px}
+.focused-layout .target-card .field{margin:0 0 14px}.focused-layout [hidden]{display:none!important}
+.profit-panel{background:#f7faff;border:1px solid #d9e8f9;border-radius:14px;padding:15px;margin:18px 0}
+.profit-panel .metric{padding:14px;margin:9px 0}.profit-panel .metric strong{font-size:clamp(24px,3.3vw,33px)}
+.profit-panel .status{margin:10px 0}.focused-layout .line strong{text-align:right}
+.advanced summary{cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center;font-weight:750;font-size:15px;list-style:none}
+.advanced summary::-webkit-details-marker{display:none}.advanced[open] summary{margin-bottom:19px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.target-card .target-metrics{margin:15px 0}
+@media(min-width:680px){.target-card .target-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head><body>
 <header><nav><a class="brand" href="https://www.paulandrewesplana.com/">Paul Andrew Esplana</a><a class="back" href="../../studio.html">← Back to iA Studio</a></nav></header>
-<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Enter a target average wager to model a promotion, or enter the requested offer directly. Review expected customer play and transparent casino economics together.</p><div class="release">v1.3 Simplified Proposal · Not an approved casino offer or rating</div></section>
-<div class="grid"><div>
-<section class="card target-card"><div class="step">01 / TARGET AVERAGE BET</div><h2>Target Bet → Suggested Promo</h2><p class="helper">Enter the customer's expected average wager. Suggested promotional values use the game, playing days, qualifying hours and illustrative casino economics shown below. No preset wager buttons.</p>
-<div class="fields">
-<div class="field wide"><label for="targetBet">Customer target average wager ($)</label><input id="targetBet" type="number" min="0" step="any" placeholder="Enter a target average bet" autocomplete="off"></div>
-</div>
-<div id="targetEmpty" class="note">Enter a target average wager to see a modeled upfront promotion, additional after-hurdle promotion and playing requirement. All suggestions require casino review.</div>
+<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Enter a target average wager to see a proposed promotion, playing hurdle and projected profitability. Game and casino economics settings remain accessible below.</p><div class="release">v1.4 Target Bet & Profitability · Planning estimates only</div></section>
+<div class="focused-layout">
+<section class="card target-card">
+<div class="step">01 / TARGET AVERAGE BET</div><h2>Target Bet → Suggested Promo</h2>
+<p class="helper">Enter the player's target average wager to estimate an upfront promotion, a conditional additional promotion and the qualifying play requirement.</p>
+<div class="field"><label for="targetBet">Customer target average wager ($)</label><input id="targetBet" type="number" min="0" step="any" placeholder="Enter expected average bet" autocomplete="off"></div>
+<div id="targetEmpty" class="note">Enter a wager to calculate an illustrative promotional recommendation. No offers are approved by this calculator.</div>
 <div id="targetError" class="status error" role="alert" hidden></div>
 <div id="targetResults" hidden>
 <div class="metrics target-metrics">
-<div class="metric primary"><small>Expected Theo at target wager</small><strong id="targetTheo">—</strong></div>
-<div class="metric"><small>Available illustrative promo face value</small><strong id="targetTotal">—</strong></div>
-<div class="metric"><small>Suggested upfront promo</small><strong id="targetUpfront">—</strong></div>
+<div class="metric primary"><small>Estimated trip Theo</small><strong id="targetTheo">—</strong></div>
+<div class="metric"><small>Suggested promotional value</small><strong id="targetTotal">—</strong></div>
+<div class="metric"><small>Suggested upfront promotion</small><strong id="targetUpfront">—</strong></div>
 <div class="metric"><small>Additional after qualifying play</small><strong id="targetEarned">—</strong></div>
 </div>
-<div class="line"><span>Qualifying play requirement</span><strong id="targetCondition">—</strong></div>
-<div class="line"><span>Other modeled casino expenses + commissions</span><strong id="targetCosts">—</strong></div>
+<div class="line"><span>Proposed playing hurdle</span><strong id="targetCondition">—</strong></div>
+<div class="line"><span>Modeled promotional cost plus other expenses</span><strong id="targetInvestment">—</strong></div>
 <div class="line"><span>Modeled investment / Theo</span><strong id="targetRatio">—</strong></div>
-<div class="note" id="targetNote">Rounded down to $50 increments, using a 62.5% upfront / 37.5% earned split. Cost and rating assumptions are illustrative, not approved casino policy.</div>
-<div class="btnbar"><button id="applyTarget" class="btn" type="button">Use Suggested Promo in Proposal</button></div>
-</div></section>
-<section class="card compact-summary"><div class="step">PROPOSAL SUMMARY</div><h2>Current proposal at a glance</h2><p class="helper">Live summary of the entered or applied proposal. Update any promotion or play input to refresh it.</p>
-<div id="error" class="status error" role="alert" hidden></div>
-<div id="results">
-<div class="compact-grid">
-<div class="compact-cell"><small>Upfront promo</small><strong id="summaryUpfront">—</strong></div>
-<div class="compact-cell"><small>After qualifying play</small><strong id="summaryEarned">—</strong></div>
-<div class="compact-cell"><small>Average wager</small><strong id="summaryBet">—</strong></div>
-<div class="compact-cell"><small>Proposed hours / day</small><strong id="qualifyingHours">—</strong></div>
-<div class="compact-cell"><small>Estimated trip Theo</small><strong id="theo">—</strong></div>
-<div class="compact-cell"><small>Total modeled casino investment</small><strong id="investment">—</strong></div>
+<div class="profit-panel">
+<div class="step">02 / PROFITABILITY CHECK</div>
+<div class="metric primary"><small>Projected contribution (Theo less modeled costs)</small><strong id="projectedNet">—</strong></div>
+<p class="status" id="projectedStatus" role="status"></p>
+<p class="muted">Projected contribution is <strong>not actual casino profit</strong>. It compares estimated theoretical gaming value with entered promotional and trip costs, excluding unmodeled casino operating expenses.</p>
+<div id="actualProfitability" hidden>
+<div class="line"><span>Actual casino gaming win / loss</span><strong id="actualWinDisplay">—</strong></div>
+<div class="line"><span>Actual contribution after modeled trip costs</span><strong id="actualNet">—</strong></div>
+<p class="status" id="actualStatus" role="status"></p>
 </div>
-<div id="verdict" class="status" role="status"></div>
-<p class="muted" id="earnedGuideline">A qualifying play requirement is a proposed release condition, not a guarantee of economic sufficiency or an authorized casino offer.</p>
-<div class="btnbar"><button id="copy" class="btn" type="button">Copy Proposal Summary</button><button id="print" class="btn alt" type="button">Print Proposal</button></div>
-<div class="muted" id="exportstatus" role="status" style="margin-top:7px"></div></div></section>
-<section class="card"><div class="step">02 / REQUESTED PROMOTION</div><h2>Proposed player benefits</h2><p class="helper">Start with the independent agent's requested offer and when the additional benefit becomes eligible. These are proposals—not approved offers.</p>
-<div class="fields">
-<div class="field"><label for="upfront">Upfront promotion face value ($)</label><input id="upfront" type="number" min="0" step="any" value="1000"></div>
-<div class="field"><label for="earned">After-hurdle promotion face value ($)</label><input id="earned" type="number" min="0" step="any" value="1000"></div>
-<div class="field wide"><label for="hours">Proposed qualifying play hours per day</label><input id="hours" type="number" min="0" max="24" step="any" value="4"></div></div>
-<div class="note"><strong>Qualifying play is not economic approval.</strong> The proposed hours indicate when the additional benefit might become eligible. The estimated casino-economic hurdle is calculated separately below.</div></section>
-<section class="card"><div class="step">03 / EXPECTED CUSTOMER PLAY</div><h2>Customer play expectations</h2><p class="helper">Select Table Games or Slots, the expected wager and number of playing days. The $2,800 starting wager is editable.</p>
+</div>
+<div class="note" id="targetNote">Values are estimated, not a guaranteed outcome or authorized casino offer. Actual rating parameters and costs must be confirmed with the casino.</div>
+<div class="btnbar"><button id="copy" class="btn" type="button">Copy Proposal</button><button id="print" class="btn alt" type="button">Print Proposal</button></div>
+<div class="muted" id="exportstatus" role="status" style="margin-top:8px"></div>
+</div>
+</section>
+<details class="card advanced" id="advanced">
+<summary><span>Advanced Settings · Game &amp; Casino Economics</span><span class="muted">Optional <span aria-hidden="true">⌄</span></span></summary>
+<p class="helper">Transparent assumptions used for promotional recommendations and profitability estimates. Inputs are illustrative, not approved PENN or M Resort policy. Do not enter confidential customer information.</p>
 <div class="field wide"><label>Gaming category</label><div class="segment" role="group" aria-label="Gaming category"><button type="button" data-category="tables" aria-pressed="true">Table Games</button><button type="button" data-category="slots" aria-pressed="false">Slots</button></div></div>
 <div class="fields" style="margin-top:16px">
 <div class="field wide"><label for="game">Game / slot category</label><select id="game"></select></div>
-<div class="field"><label for="bet" id="betLabel">Average rated bet ($)</label><input id="bet" type="number" min="0" step="any" value="2800"></div>
+<div class="field"><label for="hours">Proposed qualifying hours / day</label><input id="hours" type="number" min="0.01" max="24" step="any" value="4"></div>
 <div class="field"><label for="days">Playing days</label><input id="days" type="number" min="1" max="365" step="1" value="1"></div>
 <div class="field"><label for="speed" id="speedLabel">Estimated decisions per hour</label><input id="speed" type="number" min="0" step="any" value="72"></div>
 <div class="field"><label for="edge" id="edgeLabel">Estimated rating advantage (%)</label><input id="edge" type="number" min="0" max="100" step="any" value="1.2"></div>
-</div><div class="note" id="categoryNotice"><strong>Table Games:</strong> Defaults are historical player-rating examples. Actual casino parameters may differ.</div></section>
-<section class="card"><div class="step">04 / SHARED CASINO ECONOMICS</div><h2>Transparent proposal economics</h2><p class="helper">The independent agent and casino reviewer see the same estimated costs and hurdle assumptions. Use only non-confidential planning values.</p>
-<div class="fields">
 <div class="field"><label for="costFactor">Estimated promo economic cost (%)</label><input id="costFactor" type="number" min="0" max="100" step="any" value="100"></div>
-<div class="field"><label for="reinvest">Illustrative total reinvestment ceiling (% of Theo)</label><input id="reinvest" type="number" min="0" max="100" step="any" value="30"></div>
+<div class="field"><label for="reinvest">Illustrative reinvestment ceiling (% of Theo)</label><input id="reinvest" type="number" min="0" max="100" step="any" value="30"></div>
 <div class="field"><label for="expenses">Other trip costs ($)</label><input id="expenses" type="number" min="0" step="any" value="0"></div>
 <div class="field"><label for="commission">Agent commissions / fees ($)</label><input id="commission" type="number" min="0" step="any" value="0"></div>
-</div><div class="note"><strong>Illustrative, not policy:</strong> The 100% promo cost and 30% Theo reinvestment ceiling are editable modeling assumptions, not approved PENN or M Resort terms. Do not enter confidential internal arrangements in this public tool.</div></section>
+<div class="field wide"><label for="actualWin">Optional actual casino gaming win / loss ($)</label><input id="actualWin" type="number" step="any" placeholder="Leave blank until actual result is known"></div>
 </div>
+<div class="note" id="categoryNotice"><strong>Table Games:</strong> Historical industry rating defaults. Confirm the property's real assumptions.</div>
+<div class="note"><strong>Actual result:</strong> Positive casino win means the property won money; negative means a casino loss / customer win. The resulting actual contribution subtracts the modeled trip costs, but not full casino operating expenses. Do not input personally identifying player information.</div>
+</details>
 </div>
 <div class="footer muted">Formula for table games: estimated trip Theo = average rated bet × estimated decisions/hour × hours/day × playing days × estimated rating advantage. For slots: wager/spin × spins/hour × hours/day × playing days × theoretical hold. The slot assumptions are not prefilled because game-specific values must be provided. Promotional valuation, casino ratings, reinvestment policy and release milestones require casino approval. <a href="https://www.gaming.nv.gov/siteassets/content/regs/gaming-statutes--regulations/regulation-25-as-of-04-26.pdf" target="_blank" rel="noopener noreferrer">Nevada Regulation 25 (Theo definition)</a>. Historical table-game defaults: <a href="https://wizardofodds.com/ask-the-wizard/184/" target="_blank" rel="noopener noreferrer">Wizard of Odds player-rating example</a>. This calculator does not predict actual results or authorize offers.</div>
 </main>
@@ -76,139 +81,92 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 (function(){
 "use strict";
 const games={
-tables:[["Baccarat",72,1.2],["Mini-Baccarat",72,1.2],["Blackjack",70,.75],["Craps",48,1.58],["Pai Gow Poker",34,1.96],["Pai Gow Tiles",30,1.65],["Roulette (Double Zero)",38,5.26],["Roulette (Single Zero)",35,2.59],["Spanish 21",75,2.2],["Casino War",65,2.87],["Let It Ride",52,2.4],["Caribbean Stud",50,1.46],["Sic Bo",45,8]],
-slots:[["Reel Slots",null,null],["Video Slots",null,null],["Progressive Slots",null,null],["Video Poker",null,null]]
+ tables:[["Baccarat",72,1.2],["Mini-Baccarat",72,1.2],["Blackjack",70,.75],["Craps",48,1.58],["Pai Gow Poker",34,1.96],["Pai Gow Tiles",30,1.65],["Roulette (Double Zero)",38,5.26],["Roulette (Single Zero)",35,2.59],["Spanish 21",75,2.2],["Casino War",65,2.87],["Let It Ride",52,2.4],["Caribbean Stud",50,1.46],["Sic Bo",45,8]],
+ slots:[["Reel Slots",null,null],["Video Slots",null,null],["Progressive Slots",null,null],["Video Poker",null,null]]
 };
 const $=id=>document.getElementById(id);
 const money=n=>Number(n).toLocaleString("en-US",{style:"currency",currency:"USD"});
 const pct=n=>Number(n).toLocaleString("en-US",{minimumFractionDigits:1,maximumFractionDigits:1})+"%";
 const decimal=n=>Number(n).toLocaleString("en-US",{maximumFractionDigits:2});
 let category="tables",result=null;
-function loadGames(){
-$("game").replaceChildren();
-games[category].forEach((g,i)=>{let opt=document.createElement("option");opt.value=String(i);opt.textContent=g[0];$("game").appendChild(opt)});
-updateDefaults();render();
+function field(id,min,max,integer=false){
+ const raw=$(id).value.trim();if(raw==="")throw Error("Enter "+document.querySelector('label[for="'+id+'"]').textContent+".");
+ const n=Number(raw);if(!Number.isFinite(n)||n<min||(max!==null&&n>max)||(integer&&!Number.isSafeInteger(n)))throw Error("Check "+document.querySelector('label[for="'+id+'"]').textContent+".");return n;
 }
 function updateDefaults(){
-const g=games[category][Number($("game").value)]||games[category][0];
-$("speed").value=g[1]===null?"":String(g[1]);
-$("edge").value=g[2]===null?"":String(g[2]);
-$("betLabel").textContent=category==="slots"?"Average wager per spin / hand ($)":"Average rated bet ($)";
-$("speedLabel").textContent=category==="slots"?"Estimated spins / hands per hour":"Estimated decisions per hour";
-$("edgeLabel").textContent=category==="slots"?"Estimated theoretical hold (%)":"Estimated rating advantage (%)";
-$("categoryNotice").innerHTML=category==="slots"?"<strong>Slots:</strong> Enter the game-specific spins/hour and theoretical hold from an appropriate casino rating source. $2,800 is retained as your requested starting input; change it to the actual wager per spin/hand. Video poker requires its applicable theoretical return/paytable.":"<strong>Table Games:</strong> Defaults are historical casino player-rating estimates, not official house edges or property-specific rating policies. Adjust to the proposed trip.";
+ const game=games[category][Number($("game").value)]||games[category][0];
+ $("speed").value=game[1]===null?"":String(game[1]);$("edge").value=game[2]===null?"":String(game[2]);
+ $("speedLabel").textContent=category==="slots"?"Estimated spins / hands per hour":"Estimated decisions / hour";
+ $("edgeLabel").textContent=category==="slots"?"Estimated theoretical hold (%)":"Estimated rating advantage (%)";
+ $("categoryNotice").innerHTML=category==="slots"?"<strong>Slots:</strong> Enter verified spins/hour and theoretical hold. Video poker requires game-specific paytable return. No slot defaults are provided.":"<strong>Table Games:</strong> Historical industry rating assumptions are editable and may differ from property rating policies.";
 }
-function field(id,min,max,integer=false){
-const raw=$(id).value.trim();
-if(raw==="")throw Error("Enter "+document.querySelector('label[for="'+id+'"]').textContent+".");
-const n=Number(raw);
-if(!Number.isFinite(n)||n<min||(max!==null&&n>max)||(integer&&!Number.isSafeInteger(n)))throw Error("Check the value for "+document.querySelector('label[for="'+id+'"]').textContent+".");
-return n;
+function loadGames(){
+ $("game").replaceChildren();games[category].forEach((g,i)=>{const option=document.createElement("option");option.value=String(i);option.textContent=g[0];$("game").appendChild(option)});
+ updateDefaults();calculate();
 }
 function calculate(){
-try{
-const bet=field("bet",0,null),hours=field("hours",0.0000001,24),days=field("days",1,365,true),
-speed=field("speed",0.0000001,null),edge=field("edge",0,100),
-upfront=field("upfront",0,null),earned=field("earned",0,null),
-factor=field("costFactor",0,100),expenses=field("expenses",0,null),commission=field("commission",0,null),
-reinvest=field("reinvest",0.0000001,100);
-const game=games[category][Number($("game").value)];
-const hourlyTheo=bet*speed*edge/100;
-const totalTheo=hourlyTheo*hours*days;
-const promo=upfront+earned,investment=promo*factor/100+expenses+commission;
-const requiredTheo=investment/(reinvest/100),allowance=totalTheo*reinvest/100;
-const requiredHours=hourlyTheo>0?requiredTheo/(hourlyTheo*days):null;
-const requiredBet=(speed*hours*days*edge/100)>0?requiredTheo/(speed*hours*days*edge/100):null;
-if(![hourlyTheo,totalTheo,promo,investment,requiredTheo,allowance,totalTheo-investment].every(Number.isFinite)||requiredHours!==null&&!Number.isFinite(requiredHours)||requiredBet!==null&&!Number.isFinite(requiredBet))throw Error("Numbers are too large; reduce inputs.");
-result={category,game:game[0],bet,hours,days,speed,edge,upfront,earned,factor,expenses,commission,reinvest,totalTheo,promo,investment,requiredTheo,requiredHours,requiredBet,allowance};
-$("error").hidden=true;$("results").hidden=false;
-$("summaryUpfront").textContent=money(upfront);
-$("summaryEarned").textContent=money(earned);
-$("summaryBet").textContent=money(bet);
-$("qualifyingHours").textContent=decimal(hours)+" hrs/day";
-$("theo").textContent=money(totalTheo);
-$("investment").textContent=money(investment);
-const ok=investment<=allowance&&totalTheo>0;
-$("verdict").className="status "+(ok?"ok":"warn");
-$("verdict").textContent=ok?"Within selected illustrative reinvestment ceiling. Not casino approval.":"Proposed cost exceeds the selected illustrative reinvestment ceiling. Revise the proposal or seek casino review.";
-$("earnedGuideline").textContent="Suggested release condition: "+money(upfront)+" upfront and "+money(earned)+" after "+decimal(hours)+" qualifying hours/day, subject to approved conditions. Modeled economic hurdle: "+(requiredHours===null?"not calculable":decimal(requiredHours)+" hours/day")+" at "+money(bet)+" average wager. Release conditions and economic hurdles may differ.";
-$("exportstatus").textContent="";
-}catch(e){result=null;$("error").hidden=false;$("error").textContent=e.message;$("results").hidden=true;}
+ result=null;
+ const raw=$("targetBet").value.trim(),err=$("targetError");
+ $("targetResults").hidden=true;err.hidden=true;$("targetEmpty").hidden=false;
+ if(raw===""){$("targetEmpty").textContent="Enter the player's target average wager to see a suggested promo, qualifying play and profitability estimate.";return}
+ try{
+ const bet=field("targetBet",0.0000001,null),hours=field("hours",0.0000001,24),days=field("days",1,365,true),
+ speed=field("speed",0.0000001,null),edge=field("edge",0,100),
+ factor=field("costFactor",0,100),rate=field("reinvest",0.0000001,100),
+ expenses=field("expenses",0,null),commission=field("commission",0,null);
+ const actualRaw=$("actualWin").value.trim();
+ const actualWin=actualRaw===""?null:Number(actualRaw);
+ if(actualWin!==null&&!Number.isFinite(actualWin))throw Error("Enter a valid actual casino gaming win/loss.");
+ if(factor<=0)throw Error("Enter an estimated promo economic cost above 0% to calculate a face-value recommendation.");
+ const theo=bet*speed*hours*days*edge/100,allowance=theo*rate/100;
+ if(!Number.isFinite(theo)||!Number.isFinite(allowance)||theo<=0)throw Error("No positive theoretical value under these rating assumptions.");
+ const headroom=Math.max(0,allowance-expenses-commission),face=headroom/(factor/100);
+ if(!Number.isFinite(face)||face>Number.MAX_SAFE_INTEGER)throw Error("Values are too large to calculate reliably.");
+ const total=Math.floor(face/50)*50,upfront=Math.floor(total*.625/50)*50,earned=total-upfront;
+ const investment=total*factor/100+expenses+commission,projected=theo-investment;
+ const actual=actualWin===null?null:actualWin-investment;
+ if(![investment,projected].every(Number.isFinite)||(actual!==null&&!Number.isFinite(actual)))throw Error("Values are too large.");
+ const ratio=investment/theo*100;
+ result={bet,hours,days,speed,edge,category,game:games[category][Number($("game").value)][0],factor,rate,expenses,commission,theo,allowance,total,upfront,earned,investment,projected,actual,actualWin,ratio};
+ $("targetTheo").textContent=money(theo);$("targetTotal").textContent=money(total);$("targetUpfront").textContent=money(upfront);$("targetEarned").textContent=money(earned);
+ $("targetCondition").textContent=decimal(hours)+" hours/day for "+days+" day(s) at "+money(bet)+" average wager";
+ $("targetInvestment").textContent=money(investment);$("targetRatio").textContent=pct(ratio);
+ $("projectedNet").textContent=money(projected);
+ $("projectedStatus").className="status "+(projected>0?"ok":"warn");
+ $("projectedStatus").textContent=projected>0?"Positive projected contribution under the entered assumptions; actual profitability is not yet known.":projected===0?"Break-even projected contribution under the entered assumptions; not an actual profit assessment.":"Negative projected contribution under the entered assumptions; review offer economics.";
+ $("actualProfitability").hidden=actual===null;
+ if(actual!==null){
+   $("actualWinDisplay").textContent=money(actualWin);$("actualNet").textContent=money(actual);
+   $("actualStatus").className="status "+(actual>0?"ok":"warn");
+   $("actualStatus").textContent=actual>0?"Positive actual gaming contribution after modeled trip costs; full-property profit is not established.":actual===0?"Break-even actual gaming contribution after modeled trip costs.":"Negative actual gaming contribution after modeled trip costs.";
+ }
+ $("targetNote").textContent=total>0?"Illustrative recommendation: rounded down to $50 increments, with an approximate 62.5% upfront / 37.5% earned split. Promotional release requires verified play and casino approval.":"No positive promotion is recommended under the selected budget and expenses.";
+ $("targetEmpty").hidden=true;$("targetResults").hidden=false;$("exportstatus").textContent="";
+ }catch(e){err.textContent=e.message;err.hidden=false;$("targetEmpty").hidden=true}
 }
-
-/* v1.2 target wager reverse proposal: shared assumptions; no inferred property rates */
-let targetSuggestion=null;
-function recommendTarget(){
-  targetSuggestion=null;
-  const raw=$("targetBet").value.trim();
-  const err=$("targetError");
-  const wrap=$("targetResults");
-  const empty=$("targetEmpty");
-  err.hidden=true;wrap.hidden=true;empty.hidden=false;
-  if(raw===""){empty.textContent="Enter a target average wager to see suggested promotional values and their qualifying play requirements.";return}
-  try{
-    const target=field("targetBet",0.0000001,null);
-    const hours=field("hours",0.0000001,24),days=field("days",1,365,true);
-    const speed=field("speed",0.0000001,null),edge=field("edge",0,100);
-    const factor=field("costFactor",0,100),reinvest=field("reinvest",0.0000001,100);
-    const expenses=field("expenses",0,null),commission=field("commission",0,null);
-    const theo=target*speed*edge/100*hours*days;
-    const allowance=theo*reinvest/100;
-    const remaining=allowance-expenses-commission;
-    if(![theo,allowance,remaining].every(Number.isFinite))throw Error("Values are too large to model.");
-    if(edge===0||theo<=0){empty.textContent="No positive estimated Theo is generated with the selected assumptions. Adjust the rating advantage or hold.";return}
-    if(factor===0){err.textContent="A 0% promo economic cost cannot generate a meaningful face-value recommendation. Enter a verified cost percentage above zero.";err.hidden=false;empty.hidden=true;return}
-    const rawFace=Math.max(0,remaining)/(factor/100);
-    if(!Number.isFinite(rawFace))throw Error("Suggested promotional amount is too large.");
-    // Round down to prevent the suggested investment from exceeding the modeled ceiling.
-    const total=Math.floor(rawFace/50)*50;
-    const upfront=Math.floor(total*.625/50)*50;
-    const earned=total-upfront;
-    const modeledInvestment=total*factor/100+expenses+commission;
-    const ratio=modeledInvestment/theo*100;
-    targetSuggestion={target,theo,total,upfront,earned,modeledInvestment,ratio,hours,days,category,game:games[category][Number($("game").value)][0]};
-    $("targetTheo").textContent=money(theo);
-    $("targetTotal").textContent=money(total);
-    $("targetUpfront").textContent=money(upfront);
-    $("targetEarned").textContent=money(earned);
-    $("targetCondition").textContent=decimal(hours)+" hrs/day across "+days+" playing day(s) at "+money(target)+" average wager";
-    $("targetCosts").textContent=money(expenses+commission);
-    $("targetRatio").textContent=pct(ratio);
-    $("targetNote").textContent=total>0?
-      "Illustrative only: rounded down to $50 increments; 62.5% upfront / 37.5% earned target split (rounded). The required qualifying play is a proposed condition, not a casino approval.":
-      "The modeled promotional budget is below $50 after costs; no positive promotion is suggested. Review all rating and cost assumptions with the casino.";
-    $("applyTarget").disabled=total<=0;
-    empty.hidden=true;wrap.hidden=false;
-  }catch(e){err.textContent=e.message;err.hidden=false;empty.hidden=true}
-}
-
 function summary(){
-if(!result)return null;const r=result;
-return "HURDLE CALCULATOR v1.3 — SIMPLIFIED PROPOSAL (NOT APPROVED)\n"+
-"Gaming category: "+(r.category==="tables"?"Table Games":"Slots")+" | Game: "+r.game+
-"\nProposed qualifying hours/day: "+decimal(r.hours)+"\nAverage wager: "+money(r.bet)+" | Hours/day: "+decimal(r.hours)+" | Days: "+r.days+
-"\nRate: "+decimal(r.speed)+" decisions/spins per hour | Estimated advantage/hold: "+pct(r.edge)+
-"\nEstimated trip Theo: "+money(r.totalTheo)+
-"\nProposed upfront: "+money(r.upfront)+" | After hurdle: "+money(r.earned)+
-"\nPromo face value: "+money(r.promo)+" | Promo economic cost factor: "+pct(r.factor)+
-"\nOther costs: "+money(r.expenses)+" | Commissions/fees: "+money(r.commission)+
-"\nModeled total casino investment: "+money(r.investment)+
-"\nSelected illustrative reinvestment ceiling: "+pct(r.reinvest)+
-"\nRequired Theo: "+money(r.requiredTheo)+
-"\nModeled economic hurdle hours/day: "+(r.requiredHours===null?"N/A":decimal(r.requiredHours))+
-"\nRequired average wager at current play: "+(r.requiredBet===null?"N/A":money(r.requiredBet))+
-"\nDisclaimer: Historical/entered rating assumptions only; confirm with your on-property casino contact. Proposal subject to casino approval.";
+ if(!result)return null;const r=result;
+ return "HURDLE CALCULATOR v1.4 — ESTIMATE; NOT AN APPROVED OFFER\n"+
+ "Game: "+r.game+" ("+(r.category==="tables"?"Table Games":"Slots")+")\n"+
+ "Target average wager: "+money(r.bet)+"\n"+
+ "Qualifying play: "+decimal(r.hours)+" hrs/day for "+r.days+" day(s)\n"+
+ "Estimated Theo: "+money(r.theo)+"\n"+
+ "Suggested upfront: "+money(r.upfront)+"\nAfter qualifying play: "+money(r.earned)+"\nTotal suggested promo: "+money(r.total)+"\n"+
+ "Estimated promo economic cost: "+pct(r.factor)+"\nOther trip costs: "+money(r.expenses)+"\nAgent fees: "+money(r.commission)+"\n"+
+ "Illustrative reinvestment allowance: "+pct(r.rate)+" of Theo\n"+
+ "Modeled investment: "+money(r.investment)+"\nProjected contribution (Theo less modeled costs): "+money(r.projected)+
+ (r.actual===null?"\nActual profitability: NOT AVAILABLE — actual casino win/loss not provided.":"\nActual casino win/loss: "+money(r.actualWin)+"\nActual gaming contribution after modeled costs: "+money(r.actual))+
+ "\nThese contribution estimates exclude unmodeled operating expenses. No offer is approved; confirm rating assumptions and casino policy.";
 }
-document.querySelectorAll("[data-category]").forEach(b=>b.addEventListener("click",()=>{
-category=b.dataset.category;document.querySelectorAll("[data-category]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
-loadGames();
+document.querySelectorAll("[data-category]").forEach(button=>button.addEventListener("click",()=>{
+ category=button.dataset.category;
+ document.querySelectorAll("[data-category]").forEach(x=>x.setAttribute("aria-pressed",String(x===button)));
+ loadGames();
 }));
-$("game").addEventListener("change",()=>{updateDefaults();render()});
-document.querySelectorAll("input").forEach(el=>el.addEventListener("input",render));
-function render(){calculate();recommendTarget()}
-$("copy").addEventListener("click",async()=>{let text=summary();if(!text)return;try{await navigator.clipboard.writeText(text);$("exportstatus").textContent="Proposal copied."}catch(e){window.prompt("Copy proposal:",text)}});
+$("game").addEventListener("change",()=>{updateDefaults();calculate()});
+document.querySelectorAll("input").forEach(input=>input.addEventListener("input",calculate));
+$("copy").addEventListener("click",async()=>{const text=summary();if(!text)return;try{await navigator.clipboard.writeText(text);$("exportstatus").textContent="Proposal copied."}catch(e){window.prompt("Copy proposal:",text)}});
 $("print").addEventListener("click",()=>{if(result)window.print()});
-$("applyTarget").addEventListener("click",()=>{if(!targetSuggestion)return; const q=targetSuggestion;$("bet").value=String(q.target);$("upfront").value=String(q.upfront);$("earned").value=String(q.earned);render();$("exportstatus").textContent="Suggested promo applied to shared proposal. Review before submission.";});
 loadGames();
 })();
 </script></body></html>
