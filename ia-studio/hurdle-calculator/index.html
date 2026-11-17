@@ -5,20 +5,39 @@
 *{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}button,input,select{font:inherit}a{color:var(--blue);text-decoration:none}
 header{background:#ffffffed;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:3;backdrop-filter:blur(18px)}nav{max-width:1160px;padding:0 24px;margin:auto;display:flex;justify-content:space-between;gap:15px;align-items:center;min-height:66px}.brand{font-weight:700;letter-spacing:-.04em;color:var(--ink)}.back{font-size:13px;color:#555}
 main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}.kicker{font-size:12px;color:#936d40;letter-spacing:.14em;font-weight:800;text-transform:uppercase}.hero h1{font-size:clamp(44px,7vw,70px);letter-spacing:-.065em;margin:10px 0;line-height:1.1}.hero p{color:var(--sub);font-size:18px;line-height:1.5;max-width:790px;margin:9px 0}.release{font-size:12px;color:#647084}
-.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(350px,.9fr);gap:20px;align-items:start}.card{border:1px solid var(--line);border-radius:20px;background:white;box-shadow:0 6px 24px #17171c07;padding:25px;margin-bottom:18px}.card h2{font-size:21px;margin:0 0 6px;letter-spacing:-.025em}.step{color:#1769bf;font-size:11px;font-weight:800;letter-spacing:.13em;margin-bottom:9px}.helper{margin:0 0 22px;color:#68717b;font-size:13px;line-height:1.6}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field.wide{grid-column:1/-1}.field label{font-size:12px;font-weight:700;color:#586b80}.field input,.field select{min-height:44px;border:1px solid #cbd5e1;border-radius:9px;padding:10px 11px;background:white;color:#21334a;width:100%;outline-offset:3px}.field input:focus,.field select:focus{outline:2px solid #82b8ef}.segment{display:flex;border:1px solid #b5d0eb;border-radius:12px;background:#f3f8ff;padding:4px;gap:4px}.segment button{flex:1;border:0;border-radius:9px;background:transparent;color:#2a567e;padding:10px;font-size:14px;font-weight:700;cursor:pointer}.segment button[aria-pressed=true]{background:#06c;color:white;box-shadow:0 2px 9px #0055aa30}.note{background:#f4f8fd;border-radius:12px;padding:12px;color:#567088;font-size:12px;line-height:1.55;margin-top:14px}.note strong{color:#243f5b}.row{display:flex;gap:12px;justify-content:space-between;align-items:center}.summary{position:sticky;top:85px}.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}.metric{background:#f5f8fc;border:1px solid #dfebf7;border-radius:13px;padding:15px}.metric.primary{background:#eaf3ff}.metric small{display:block;font-size:11px;color:#6c8193;line-height:1.4}.metric strong{display:block;font-size:clamp(21px,2.5vw,28px);margin-top:6px;overflow-wrap:anywhere}.line{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e9edf2;padding:11px 0;font-size:13px}.line strong{text-align:right}.status{padding:14px;border-radius:12px;background:#f3f5f8;border:1px solid #e1e7ee;font-size:13px;line-height:1.6;margin-top:15px}.status.ok{background:#eaf6ef;color:var(--ok);border-color:#c5e3d1}.status.warn{background:#fff6e9;color:var(--warn);border-color:#f2dfbf}.status.error{background:#fff1f1;color:#a43b3b;border-color:#f4d1d1}
+.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(350px,.9fr);gap:20px;align-items:start}.card{border:1px solid var(--line);border-radius:20px;background:white;box-shadow:0 6px 24px #17171c07;padding:25px;margin-bottom:18px}.card h2{font-size:21px;margin:0 0 6px;letter-spacing:-.025em}.step{color:#1769bf;font-size:11px;font-weight:800;letter-spacing:.13em;margin-bottom:9px}.helper{margin:0 0 22px;color:#68717b;font-size:13px;line-height:1.6}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field.wide{grid-column:1/-1}.field label{font-size:12px;font-weight:700;color:#586b80}.field input,.field select{min-height:44px;border:1px solid #cbd5e1;border-radius:9px;padding:10px 11px;background:white;color:#21334a;width:100%;outline-offset:3px}.field input:focus,.field select:focus{outline:2px solid #82b8ef}.segment{display:flex;border:1px solid #b5d0eb;border-radius:12px;background:#f3f8ff;padding:4px;gap:4px}.segment button{flex:1;border:0;border-radius:9px;background:transparent;color:#2a567e;padding:10px;font-size:14px;font-weight:700;cursor:pointer}.segment button[aria-pressed=true]{background:#06c;color:white;box-shadow:0 2px 9px #0055aa30}.note{background:#f4f8fd;border-radius:12px;padding:12px;color:#567088;font-size:12px;line-height:1.55;margin-top:14px}.note strong{color:#243f5b}.row{display:flex;gap:12px;justify-content:space-between;align-items:center}.summary{position:sticky;top:85px}.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}.metric{background:#f5f8fc;border:1px solid #dfebf7;border-radius:13px;padding:15px}.metric.primary{background:#eaf3ff}.metric small{display:block;font-size:11px;color:#6c8193;line-height:1.4}.target-card .target-metrics{margin-bottom:14px}.target-card [hidden]{display:none!important}.metric strong{display:block;font-size:clamp(21px,2.5vw,28px);margin-top:6px;overflow-wrap:anywhere}.line{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e9edf2;padding:11px 0;font-size:13px}.line strong{text-align:right}.status{padding:14px;border-radius:12px;background:#f3f5f8;border:1px solid #e1e7ee;font-size:13px;line-height:1.6;margin-top:15px}.status.ok{background:#eaf6ef;color:var(--ok);border-color:#c5e3d1}.status.warn{background:#fff6e9;color:var(--warn);border-color:#f2dfbf}.status.error{background:#fff1f1;color:#a43b3b;border-color:#f4d1d1}
 .btnbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:17px}.btn{background:var(--blue);color:white;border:1px solid var(--blue);border-radius:9px;padding:11px 16px;font-weight:700;cursor:pointer}.btn.alt{background:white;color:var(--blue)}.btn:disabled{opacity:.5;cursor:not-allowed}.muted{font-size:12px;color:#7b8290;line-height:1.6}.footer{padding-top:18px;border-top:1px solid #dce0e7;margin-top:25px}.warn-text{color:#a06d17}#results[hidden],#slotNotice[hidden]{display:none!important}@media(max-width:850px){.grid{grid-template-columns:1fr}.summary{position:static}}@media(max-width:600px){main{padding:0 16px 45px}nav{padding:0 16px}.hero{padding:32px 0 14px}.fields{gap:11px}.card{padding:18px}.metrics{grid-template-columns:1fr 1fr}.metric strong{font-size:22px}.field label{font-size:11px}}
 @media print{header,.btnbar,.segment,.back{display:none!important}main{max-width:none}.grid{display:block}.card{box-shadow:none;break-inside:avoid}.summary{position:static}body{background:white}}
 </style></head><body>
 <header><nav><a class="brand" href="https://www.paulandrewesplana.com/">Paul Andrew Esplana</a><a class="back" href="../../studio.html">← Back to iA Studio</a></nav></header>
-<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Begin with the promotional request, then review expected customer play and the casino economics together. Compare the proposed qualifying hours with the modeled financial hurdle.</p><div class="release">v1.1 Unified Proposal · Not an approved casino offer or rating</div></section>
+<main><section class="hero"><div class="kicker">iA Studio · Independent Agent Planning</div><h1>Hurdle Calculator.</h1><p>Enter a target average wager to model a promotion, or enter the requested offer directly. Review expected customer play and transparent casino economics together.</p><div class="release">v1.2 Target Bet Recommendation · Not an approved casino offer or rating</div></section>
 <div class="grid"><div>
-<section class="card"><div class="step">01 / REQUESTED PROMOTION</div><h2>Proposed player benefits</h2><p class="helper">Start with the independent agent's requested offer and when the additional benefit becomes eligible. These are proposals—not approved offers.</p>
+<section class="card target-card"><div class="step">01 / TARGET AVERAGE BET</div><h2>Target Bet → Suggested Promo</h2><p class="helper">Enter the customer's expected average wager. Suggested promotional values use the game, playing days, qualifying hours and illustrative casino economics shown below. No preset wager buttons.</p>
+<div class="fields">
+<div class="field wide"><label for="targetBet">Customer target average wager ($)</label><input id="targetBet" type="number" min="0" step="any" placeholder="Enter a target average bet" autocomplete="off"></div>
+</div>
+<div id="targetEmpty" class="note">Enter a target average wager to see a modeled upfront promotion, additional after-hurdle promotion and playing requirement. All suggestions require casino review.</div>
+<div id="targetError" class="status error" role="alert" hidden></div>
+<div id="targetResults" hidden>
+<div class="metrics target-metrics">
+<div class="metric primary"><small>Expected Theo at target wager</small><strong id="targetTheo">—</strong></div>
+<div class="metric"><small>Available illustrative promo face value</small><strong id="targetTotal">—</strong></div>
+<div class="metric"><small>Suggested upfront promo</small><strong id="targetUpfront">—</strong></div>
+<div class="metric"><small>Additional after qualifying play</small><strong id="targetEarned">—</strong></div>
+</div>
+<div class="line"><span>Qualifying play requirement</span><strong id="targetCondition">—</strong></div>
+<div class="line"><span>Other modeled casino expenses + commissions</span><strong id="targetCosts">—</strong></div>
+<div class="line"><span>Modeled investment / Theo</span><strong id="targetRatio">—</strong></div>
+<div class="note" id="targetNote">Rounded down to $50 increments, using a 62.5% upfront / 37.5% earned split. Cost and rating assumptions are illustrative, not approved casino policy.</div>
+<div class="btnbar"><button id="applyTarget" class="btn" type="button">Use Suggested Promo in Proposal</button></div>
+</div></section>
+<section class="card"><div class="step">02 / REQUESTED PROMOTION</div><h2>Proposed player benefits</h2><p class="helper">Start with the independent agent's requested offer and when the additional benefit becomes eligible. These are proposals—not approved offers.</p>
 <div class="fields">
 <div class="field"><label for="upfront">Upfront promotion face value ($)</label><input id="upfront" type="number" min="0" step="any" value="1000"></div>
 <div class="field"><label for="earned">After-hurdle promotion face value ($)</label><input id="earned" type="number" min="0" step="any" value="1000"></div>
 <div class="field wide"><label for="hours">Proposed qualifying play hours per day</label><input id="hours" type="number" min="0" max="24" step="any" value="4"></div></div>
 <div class="note"><strong>Qualifying play is not economic approval.</strong> The proposed hours indicate when the additional benefit might become eligible. The estimated casino-economic hurdle is calculated separately below.</div></section>
-<section class="card"><div class="step">02 / EXPECTED CUSTOMER PLAY</div><h2>Customer play expectations</h2><p class="helper">Select Table Games or Slots, the expected wager and number of playing days. The $2,800 starting wager is editable.</p>
+<section class="card"><div class="step">03 / EXPECTED CUSTOMER PLAY</div><h2>Customer play expectations</h2><p class="helper">Select Table Games or Slots, the expected wager and number of playing days. The $2,800 starting wager is editable.</p>
 <div class="field wide"><label>Gaming category</label><div class="segment" role="group" aria-label="Gaming category"><button type="button" data-category="tables" aria-pressed="true">Table Games</button><button type="button" data-category="slots" aria-pressed="false">Slots</button></div></div>
 <div class="fields" style="margin-top:16px">
 <div class="field wide"><label for="game">Game / slot category</label><select id="game"></select></div>
@@ -27,7 +46,7 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 <div class="field"><label for="speed" id="speedLabel">Estimated decisions per hour</label><input id="speed" type="number" min="0" step="any" value="72"></div>
 <div class="field"><label for="edge" id="edgeLabel">Estimated rating advantage (%)</label><input id="edge" type="number" min="0" max="100" step="any" value="1.2"></div>
 </div><div class="note" id="categoryNotice"><strong>Table Games:</strong> Defaults are historical player-rating examples. Actual casino parameters may differ.</div></section>
-<section class="card"><div class="step">03 / SHARED CASINO ECONOMICS</div><h2>Transparent proposal economics</h2><p class="helper">The independent agent and casino reviewer see the same estimated costs and hurdle assumptions. Use only non-confidential planning values.</p>
+<section class="card"><div class="step">04 / SHARED CASINO ECONOMICS</div><h2>Transparent proposal economics</h2><p class="helper">The independent agent and casino reviewer see the same estimated costs and hurdle assumptions. Use only non-confidential planning values.</p>
 <div class="fields">
 <div class="field"><label for="costFactor">Estimated promo economic cost (%)</label><input id="costFactor" type="number" min="0" max="100" step="any" value="100"></div>
 <div class="field"><label for="reinvest">Illustrative total reinvestment ceiling (% of Theo)</label><input id="reinvest" type="number" min="0" max="100" step="any" value="30"></div>
@@ -35,7 +54,7 @@ main{max-width:1160px;margin:auto;padding:0 24px 80px}.hero{padding:48px 0 24px}
 <div class="field"><label for="commission">Agent commissions / fees ($)</label><input id="commission" type="number" min="0" step="any" value="0"></div>
 </div><div class="note"><strong>Illustrative, not policy:</strong> The 100% promo cost and 30% Theo reinvestment ceiling are editable modeling assumptions, not approved PENN or M Resort terms. Do not enter confidential internal arrangements in this public tool.</div></section>
 </div>
-<aside class="card summary"><div class="step">04 / SHARED PROPOSAL RESULTS</div><h2>Promo &amp; play evaluation</h2><p class="helper">One transparent view for the agent and casino contact. Calculations occur in your browser; this tool does not transmit customer information.</p>
+<aside class="card summary"><div class="step">05 / SHARED PROPOSAL RESULTS</div><h2>Promo &amp; play evaluation</h2><p class="helper">One transparent view for the agent and casino contact. Calculations occur in your browser; this tool does not transmit customer information.</p>
 <div id="error" class="status error" role="alert" hidden></div>
 <div id="results">
 <div class="metrics"><div class="metric primary"><small>Estimated Trip Theo</small><strong id="theo">$0.00</strong></div><div class="metric"><small>Requested promo face value</small><strong id="promo">$0.00</strong></div><div class="metric"><small>Modeled total casino investment</small><strong id="investment">$0.00</strong></div><div class="metric"><small>Modeled investment / Theo</small><strong id="ratio">0%</strong></div></div>
@@ -114,9 +133,56 @@ $("earnedGuideline").textContent="Suggested structure: "+money(upfront)+" upfron
 $("exportstatus").textContent="";
 }catch(e){result=null;$("error").hidden=false;$("error").textContent=e.message;$("results").hidden=true;}
 }
+
+/* v1.2 target wager reverse proposal: shared assumptions; no inferred property rates */
+let targetSuggestion=null;
+function recommendTarget(){
+  targetSuggestion=null;
+  const raw=$("targetBet").value.trim();
+  const err=$("targetError");
+  const wrap=$("targetResults");
+  const empty=$("targetEmpty");
+  err.hidden=true;wrap.hidden=true;empty.hidden=false;
+  if(raw===""){empty.textContent="Enter a target average wager to see suggested promotional values and their qualifying play requirements.";return}
+  try{
+    const target=field("targetBet",0.0000001,null);
+    const hours=field("hours",0.0000001,24),days=field("days",1,365,true);
+    const speed=field("speed",0.0000001,null),edge=field("edge",0,100);
+    const factor=field("costFactor",0,100),reinvest=field("reinvest",0.0000001,100);
+    const expenses=field("expenses",0,null),commission=field("commission",0,null);
+    const theo=target*speed*edge/100*hours*days;
+    const allowance=theo*reinvest/100;
+    const remaining=allowance-expenses-commission;
+    if(![theo,allowance,remaining].every(Number.isFinite))throw Error("Values are too large to model.");
+    if(edge===0||theo<=0){empty.textContent="No positive estimated Theo is generated with the selected assumptions. Adjust the rating advantage or hold.";return}
+    if(factor===0){err.textContent="A 0% promo economic cost cannot generate a meaningful face-value recommendation. Enter a verified cost percentage above zero.";err.hidden=false;empty.hidden=true;return}
+    const rawFace=Math.max(0,remaining)/(factor/100);
+    if(!Number.isFinite(rawFace))throw Error("Suggested promotional amount is too large.");
+    // Round down to prevent the suggested investment from exceeding the modeled ceiling.
+    const total=Math.floor(rawFace/50)*50;
+    const upfront=Math.floor(total*.625/50)*50;
+    const earned=total-upfront;
+    const modeledInvestment=total*factor/100+expenses+commission;
+    const ratio=modeledInvestment/theo*100;
+    targetSuggestion={target,theo,total,upfront,earned,modeledInvestment,ratio,hours,days,category,game:games[category][Number($("game").value)][0]};
+    $("targetTheo").textContent=money(theo);
+    $("targetTotal").textContent=money(total);
+    $("targetUpfront").textContent=money(upfront);
+    $("targetEarned").textContent=money(earned);
+    $("targetCondition").textContent=decimal(hours)+" hrs/day across "+days+" playing day(s) at "+money(target)+" average wager";
+    $("targetCosts").textContent=money(expenses+commission);
+    $("targetRatio").textContent=pct(ratio);
+    $("targetNote").textContent=total>0?
+      "Illustrative only: rounded down to $50 increments; 62.5% upfront / 37.5% earned target split (rounded). The required qualifying play is a proposed condition, not a casino approval.":
+      "The modeled promotional budget is below $50 after costs; no positive promotion is suggested. Review all rating and cost assumptions with the casino.";
+    $("applyTarget").disabled=total<=0;
+    empty.hidden=true;wrap.hidden=false;
+  }catch(e){err.textContent=e.message;err.hidden=false;empty.hidden=true}
+}
+
 function summary(){
 if(!result)return null;const r=result;
-return "HURDLE CALCULATOR v1.1 — UNIFIED PROPOSAL (NOT APPROVED)\n"+
+return "HURDLE CALCULATOR v1.2 — TARGET BET + UNIFIED PROPOSAL (NOT APPROVED)\n"+
 "Gaming category: "+(r.category==="tables"?"Table Games":"Slots")+" | Game: "+r.game+
 "\nProposed qualifying hours/day: "+decimal(r.hours)+"\nAverage wager: "+money(r.bet)+" | Hours/day: "+decimal(r.hours)+" | Days: "+r.days+
 "\nRate: "+decimal(r.speed)+" decisions/spins per hour | Estimated advantage/hold: "+pct(r.edge)+
@@ -137,9 +203,10 @@ loadGames();
 }));
 $("game").addEventListener("change",()=>{updateDefaults();render()});
 document.querySelectorAll("input").forEach(el=>el.addEventListener("input",render));
-function render(){calculate()}
+function render(){calculate();recommendTarget()}
 $("copy").addEventListener("click",async()=>{let text=summary();if(!text)return;try{await navigator.clipboard.writeText(text);$("exportstatus").textContent="Proposal copied."}catch(e){window.prompt("Copy proposal:",text)}});
 $("print").addEventListener("click",()=>{if(result)window.print()});
+$("applyTarget").addEventListener("click",()=>{if(!targetSuggestion)return; const q=targetSuggestion;$("bet").value=String(q.target);$("upfront").value=String(q.upfront);$("earned").value=String(q.earned);render();$("exportstatus").textContent="Suggested promo applied to shared proposal. Review before submission.";});
 loadGames();
 })();
 </script></body></html>
